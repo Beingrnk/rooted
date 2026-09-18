@@ -1,0 +1,3013 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ROOTED — Sustainable building, sourced from the ground up</title>
+<meta name="description" content="Discover sustainable materials, traditional building knowledge, responsible vendors and real projects from across India.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ROOTED — design tokens
+   Palette: lime plaster / fired oxide / indigo dye / haldi
+   ============================================================ */
+:root{
+  --lime:#E7E3D9; --paper:#F3F1EA; --raise:#FBFAF6;
+  --ink:#17130F; --ink2:#544A40; --ink3:#8B8074;
+  --oxide:#9E4B2F; --oxide-soft:#E3CFC4;
+  --indigo:#24333F; --haldi:#C0892E; --moss:#4C5A42;
+  --line:rgba(23,19,15,.15); --line2:rgba(23,19,15,.08);
+  --shadow:0 1px 2px rgba(23,19,15,.05), 0 18px 40px -28px rgba(23,19,15,.45);
+  --arch:104px 104px 2px 2px;
+  --f-display:"Bricolage Grotesque",-apple-system,Segoe UI,sans-serif;
+  --f-text:"Newsreader",Georgia,serif;
+  --wrap:1340px;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"]{
+  --lime:#141210; --paper:#1C1917; --raise:#252120;
+  --ink:#EDE8DD; --ink2:#B2A99C; --ink3:#7E7568;
+  --oxide:#CE6C46; --oxide-soft:#4A2A1E;
+  --indigo:#93AEBF; --haldi:#DBA750; --moss:#8FA383;
+  --line:rgba(237,232,221,.16); --line2:rgba(237,232,221,.08);
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 20px 50px -30px rgba(0,0,0,.9);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --lime:#141210; --paper:#1C1917; --raise:#252120;
+    --ink:#EDE8DD; --ink2:#B2A99C; --ink3:#7E7568;
+    --oxide:#CE6C46; --oxide-soft:#4A2A1E;
+    --indigo:#93AEBF; --haldi:#DBA750; --moss:#8FA383;
+    --line:rgba(237,232,221,.16); --line2:rgba(237,232,221,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 20px 50px -30px rgba(0,0,0,.9);
+  }
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--lime);color:var(--ink);
+  font-family:var(--f-display);font-size:16px;line-height:1.5;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden}
+img{max-width:100%;display:block}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--oxide);outline-offset:3px;border-radius:2px}
+.grain{position:fixed;inset:0;background-image:var(--noise);opacity:.24;pointer-events:none;z-index:1;mix-blend-mode:multiply}
+:root[data-theme="dark"] .grain{opacity:.16;mix-blend-mode:screen}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- type ---------- */
+h1,h2,h3,h4{margin:0;font-weight:500;letter-spacing:-.035em;line-height:.98}
+.d1{font-size:clamp(3.2rem,8.4vw,7.4rem);font-weight:500;letter-spacing:-.05em;line-height:.9}
+.d2{font-size:clamp(2.1rem,4.4vw,3.6rem);letter-spacing:-.04em;line-height:1}
+.d3{font-size:clamp(1.5rem,2.6vw,2.1rem);letter-spacing:-.03em;line-height:1.08}
+.d4{font-size:1.16rem;letter-spacing:-.02em;line-height:1.15;font-weight:500}
+.prose{font-family:var(--f-text);font-size:1.06rem;line-height:1.66;color:var(--ink2);font-weight:300}
+.prose.lg{font-size:1.24rem;line-height:1.6}
+.lede{font-family:var(--f-text);font-size:clamp(1.05rem,1.6vw,1.34rem);line-height:1.55;color:var(--ink2);font-weight:300;max-width:60ch}
+.micro{font-size:.72rem;letter-spacing:.06em;color:var(--ink3);font-weight:500}
+.mono{font-variant-numeric:tabular-nums}
+.oxide{color:var(--oxide)}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(18px,3.6vw,44px)}
+.sec{padding:clamp(56px,7vw,104px) 0}
+.sec--tight{padding:clamp(34px,4vw,54px) 0}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px}
+.sechead p{margin:10px 0 0;max-width:46ch}
+.stack{display:flex;flex-direction:column;gap:6px}
+.row{display:flex;align-items:center;gap:10px}
+.spread{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.grid{display:grid;gap:clamp(14px,1.6vw,22px)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:1000px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.g4,.g3,.g2{grid-template-columns:1fr}}
+
+/* ---------- title block (architectural drawing device) ---------- */
+.tb{display:grid;grid-template-columns:repeat(auto-fit,minmax(122px,1fr));margin:0;
+  border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.tb>div{padding:11px 13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tb dt{font-size:.66rem;letter-spacing:.08em;color:var(--ink3);margin:0 0 5px;text-transform:uppercase;font-weight:600}
+.tb dd{margin:0;font-size:.92rem;letter-spacing:-.01em;font-weight:500;line-height:1.3}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 19px;border-radius:2px;
+  border:1px solid var(--ink);background:var(--ink);color:var(--lime);font-size:.9rem;font-weight:500;
+  letter-spacing:-.01em;transition:transform .16s ease, background .16s ease, color .16s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn--ghost:hover{border-color:var(--ink)}
+.btn--oxide{background:var(--oxide);border-color:var(--oxide);color:#FFF8F2}
+.btn--sm{padding:7px 13px;font-size:.82rem}
+.btn--wide{width:100%;justify-content:center}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.iconbtn{width:38px;height:38px;display:grid;place-items:center;border:1px solid var(--line);border-radius:2px;
+  transition:border-color .16s, background .16s}
+.iconbtn:hover{border-color:var(--ink)}
+.iconbtn.on{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+.linky{border-bottom:1px solid var(--line);padding-bottom:2px;font-size:.9rem;font-weight:500;transition:border-color .16s}
+.linky:hover{border-color:var(--oxide);color:var(--oxide)}
+
+/* ---------- chips / tags ---------- */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border:1px solid var(--line);
+  border-radius:999px;font-size:.8rem;font-weight:500;color:var(--ink2);white-space:nowrap;
+  transition:border-color .15s, color .15s, background .15s}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--lime);border-color:var(--ink)}
+.tag{font-size:.72rem;letter-spacing:.01em;color:var(--ink3);padding:3px 8px;border:1px solid var(--line2);border-radius:2px;background:var(--paper)}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:600;letter-spacing:.03em;
+  color:var(--moss);padding:3px 8px;border:1px solid currentColor;border-radius:999px;opacity:.9}
+.scroller{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.scroller::-webkit-scrollbar{display:none}
+
+/* ---------- artwork ---------- */
+.art{position:relative;overflow:hidden;background:var(--paper);display:block}
+.art svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.art::after{content:"";position:absolute;inset:0;background-image:var(--noise);opacity:.14;mix-blend-mode:overlay}
+.ar43{aspect-ratio:4/3}.ar11{aspect-ratio:1}.ar34{aspect-ratio:3/4}.ar169{aspect-ratio:16/9}.ar32{aspect-ratio:3/2}
+.arch{border-radius:var(--arch)}
+
+/* ---------- cards ---------- */
+.card{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:2px;overflow:hidden;
+  transition:border-color .2s ease, transform .2s ease}
+.card:hover{border-color:var(--ink)}
+.card .art svg{transition:transform .5s cubic-bezier(.2,.7,.3,1)}
+.card:hover .art svg{transform:scale(1.045)}
+.card__body{padding:15px 16px 17px}
+.card__meta{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--ink3);margin-top:7px;flex-wrap:wrap}
+.card__foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px;border-top:1px solid var(--line2)}
+.stat{display:inline-flex;align-items:center;gap:5px;font-size:.8rem;color:var(--ink3);font-variant-numeric:tabular-nums}
+.stat.on{color:var(--oxide)}
+.corner{position:absolute;top:0;right:0;padding:6px 10px;background:var(--lime);border-left:1px solid var(--line);
+  border-bottom:1px solid var(--line);font-size:.68rem;font-weight:600;letter-spacing:.04em;z-index:2}
+
+/* ---------- header ---------- */
+.nav{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--lime) 88%,transparent);
+  backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav__in{display:flex;align-items:center;gap:22px;height:62px}
+.brand{font-size:1.16rem;font-weight:700;letter-spacing:.16em;flex:none}
+.brand b{font-weight:700}
+.navlinks{display:flex;gap:2px;flex:1;min-width:0;overflow:hidden}
+.navlinks a{padding:7px 10px;font-size:.87rem;font-weight:500;color:var(--ink2);border-radius:2px;
+  transition:color .15s, background .15s;white-space:nowrap}
+.navlinks a:hover{color:var(--ink);background:var(--paper)}
+.navlinks a.on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--oxide)}
+.navtools{display:flex;align-items:center;gap:8px;flex:none}
+.searchbtn{display:flex;align-items:center;gap:9px;padding:8px 10px 8px 12px;border:1px solid var(--line);
+  border-radius:2px;color:var(--ink3);font-size:.85rem;min-width:190px;transition:border-color .15s}
+.searchbtn:hover{border-color:var(--ink);color:var(--ink)}
+.kbd{border:1px solid var(--line);border-radius:3px;padding:1px 5px;font-size:.68rem;font-weight:600;color:var(--ink3)}
+.avatar{width:34px;height:34px;border-radius:999px;display:grid;place-items:center;font-size:.78rem;font-weight:700;
+  background:var(--indigo);color:var(--lime);flex:none;letter-spacing:.02em}
+:root[data-theme="dark"] .avatar{color:#141210}
+.preview-pill{font-size:.64rem;font-weight:700;letter-spacing:.1em;color:var(--oxide);border:1px solid var(--oxide);
+  border-radius:999px;padding:2px 7px;opacity:.75}
+.dropdown{position:absolute;top:56px;right:0;width:min(370px,calc(100vw - 28px));background:var(--raise);
+  border:1px solid var(--line);border-radius:3px;box-shadow:var(--shadow);z-index:70;overflow:hidden}
+.notif{display:flex;gap:11px;padding:13px 15px;border-bottom:1px solid var(--line2);text-align:left;width:100%;transition:background .15s}
+.notif:hover{background:var(--paper)}
+.notif.unread{background:color-mix(in srgb,var(--oxide) 7%,transparent)}
+.pos{position:relative}
+.dot{position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:999px;background:var(--oxide)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(40px,6vw,84px) 0 clamp(50px,6vw,90px);overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr);gap:clamp(22px,4vw,64px);align-items:center}
+.hero__plates{position:relative;height:clamp(380px,46vw,560px)}
+.plate{position:absolute;border:1px solid var(--line);border-radius:2px;overflow:hidden;box-shadow:var(--shadow);will-change:transform}
+.plate--a{left:0;top:0;width:60%;height:78%;border-radius:var(--arch)}
+.plate--b{right:0;top:16%;width:44%;height:52%}
+.plate--c{right:8%;bottom:0;width:38%;height:30%}
+.hero__note{position:absolute;left:2%;bottom:2%;background:var(--lime);border:1px solid var(--line);
+  border-radius:2px;padding:11px 14px;max-width:214px;box-shadow:var(--shadow);will-change:transform}
+.hero h1 em{font-family:var(--f-text);font-style:italic;font-weight:300;letter-spacing:-.02em}
+.hero__cta{display:flex;gap:11px;flex-wrap:wrap;margin-top:28px}
+.hero__strip{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:20px;border-top:1px solid var(--line)}
+.hero__strip div{min-width:104px}
+.hero__strip b{display:block;font-size:1.5rem;font-weight:500;letter-spacing:-.03em}
+@media(max-width:900px){.hero__grid{grid-template-columns:1fr}.hero__plates{height:320px;order:-1}}
+
+/* ---------- explore tiles ---------- */
+.tiles{display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.tile{position:relative;background:var(--lime);min-height:224px;padding:16px;display:flex;flex-direction:column;
+  justify-content:flex-end;overflow:hidden;transition:background .25s}
+.tile__art{position:absolute;inset:0;opacity:.34;transition:opacity .3s ease, transform .5s cubic-bezier(.2,.7,.3,1)}
+.tile:hover .tile__art{opacity:.72;transform:scale(1.06)}
+.tile__n{position:absolute;top:14px;left:16px;font-size:.7rem;font-weight:600;color:var(--ink3)}
+.tile h3{position:relative;font-size:1.3rem;letter-spacing:-.03em}
+.tile p{position:relative;margin:6px 0 0;font-family:var(--f-text);font-size:.86rem;color:var(--ink2);font-weight:300;line-height:1.4}
+@media(max-width:1000px){.tiles{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.tiles{grid-template-columns:repeat(2,1fr)}.tile{min-height:172px}}
+
+/* ---------- rail ---------- */
+.rail{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 0 14px;scrollbar-width:none;
+  margin-inline:calc(-1 * clamp(18px,3.6vw,44px));padding-inline:clamp(18px,3.6vw,44px)}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start;flex:0 0 clamp(210px,23vw,282px)}
+.rail--wide>*{flex:0 0 clamp(268px,32vw,392px)}
+
+/* ---------- climate ---------- */
+.climate{display:grid;grid-template-columns:230px minmax(0,1fr);gap:clamp(18px,3vw,42px);align-items:start}
+.climate__list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.climate__list button{text-align:left;padding:15px 4px;border-bottom:1px solid var(--line);display:flex;
+  align-items:baseline;gap:10px;transition:padding-left .2s ease,color .2s}
+.climate__list button:hover{padding-left:9px}
+.climate__list button.on{padding-left:9px;box-shadow:inset 3px 0 0 var(--oxide)}
+.climate__list b{font-size:1.02rem;font-weight:500;letter-spacing:-.02em}
+.climate__list span{font-size:.72rem;color:var(--ink3)}
+.fade{animation:fade .38s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+@media(max-width:800px){.climate{grid-template-columns:1fr}.climate__list{flex-direction:row;overflow-x:auto;border-top:0}
+ .climate__list button{border-bottom:0;border-right:1px solid var(--line);white-space:nowrap;flex-direction:column;gap:2px}}
+
+/* ---------- region map ---------- */
+.mapwrap{display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);gap:clamp(20px,3vw,48px);align-items:center}
+.mapsvg{width:100%;height:auto;max-height:520px}
+.mapsvg .land{fill:var(--paper);stroke:var(--line);stroke-width:1.4}
+.mapsvg .pin{fill:var(--ink3);cursor:pointer;transition:fill .2s, r .2s}
+.mapsvg .pin:hover{fill:var(--oxide)}
+.mapsvg .pin.on{fill:var(--oxide)}
+.mapsvg .ring{fill:none;stroke:var(--oxide);opacity:0;transition:opacity .25s}
+.mapsvg .ring.on{opacity:.55}
+.mapsvg text{font-family:var(--f-display);font-size:11px;fill:var(--ink3);pointer-events:none}
+@media(max-width:840px){.mapwrap{grid-template-columns:1fr}}
+
+/* ---------- feed ---------- */
+.post{border:1px solid var(--line);border-radius:2px;background:var(--paper);padding:17px 18px;transition:border-color .2s}
+.post:hover{border-color:var(--ink)}
+.post__head{display:flex;gap:11px;align-items:flex-start;margin-bottom:11px}
+.post__acts{display:flex;gap:4px;margin-top:13px;padding-top:11px;border-top:1px solid var(--line2);flex-wrap:wrap}
+.act{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:2px;font-size:.82rem;
+  color:var(--ink3);transition:background .15s,color .15s}
+.act:hover{background:var(--lime);color:var(--ink)}
+.act.on{color:var(--oxide)}
+.comment{display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--line2)}
+
+/* ---------- forms ---------- */
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:15px}
+.field label{font-size:.76rem;font-weight:600;letter-spacing:.03em;color:var(--ink2)}
+.inp{width:100%;padding:11px 13px;background:var(--lime);border:1px solid var(--line);border-radius:2px;
+  font-size:.94rem;transition:border-color .15s}
+.inp:focus{outline:none;border-color:var(--oxide)}
+textarea.inp{min-height:106px;resize:vertical;font-family:var(--f-text);line-height:1.55}
+.hint{font-size:.75rem;color:var(--ink3);font-family:var(--f-text)}
+.upload{border:1px dashed var(--line);border-radius:2px;padding:22px;text-align:center;color:var(--ink3);font-size:.85rem}
+
+/* ---------- modal ---------- */
+.scrim{position:fixed;inset:0;background:rgba(23,19,15,.55);backdrop-filter:blur(3px);z-index:100;
+  display:flex;align-items:flex-start;justify-content:center;padding:clamp(12px,5vh,64px) 14px;overflow-y:auto;
+  animation:fade .2s ease both}
+.modal{background:var(--lime);border:1px solid var(--line);border-radius:3px;width:min(720px,100%);
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.6);animation:pop .24s cubic-bezier(.2,.8,.3,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+.modal__head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:20px 22px;border-bottom:1px solid var(--line)}
+.modal__body{padding:20px 22px}
+.modal__foot{display:flex;gap:10px;justify-content:flex-end;padding:16px 22px;border-top:1px solid var(--line);flex-wrap:wrap}
+.sheet{margin-top:auto;width:100%;border-radius:12px 12px 0 0;animation:up .26s cubic-bezier(.2,.8,.3,1) both}
+@keyframes up{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+.scrim--bottom{align-items:flex-end;padding:0}
+
+/* ---------- command palette ---------- */
+.cmd{width:min(660px,100%);background:var(--raise);border:1px solid var(--line);border-radius:4px;
+  box-shadow:0 40px 90px -30px rgba(0,0,0,.6);overflow:hidden;animation:pop .2s ease both}
+.cmd__in{width:100%;padding:18px 20px;border:0;border-bottom:1px solid var(--line);background:transparent;
+  font-size:1.08rem;letter-spacing:-.02em}
+.cmd__in:focus{outline:none}
+.cmd__list{max-height:min(56vh,440px);overflow-y:auto;padding:6px}
+.cmd__grp{font-size:.68rem;font-weight:700;letter-spacing:.09em;color:var(--ink3);padding:11px 12px 6px;text-transform:uppercase}
+.cmd__item{display:flex;align-items:center;gap:11px;width:100%;padding:10px 12px;border-radius:2px;text-align:left;transition:background .1s}
+.cmd__item:hover,.cmd__item.sel{background:var(--paper)}
+.cmd__kind{margin-left:auto;font-size:.7rem;color:var(--ink3);flex:none}
+
+/* ---------- gallery / lightbox ---------- */
+.masonry{columns:3;column-gap:14px}
+.masonry>*{break-inside:avoid;margin-bottom:14px;cursor:zoom-in}
+@media(max-width:820px){.masonry{columns:2}}
+@media(max-width:520px){.masonry{columns:1}}
+.lb{position:fixed;inset:0;z-index:120;background:rgba(15,12,10,.94);display:grid;place-items:center;padding:20px;animation:fade .2s ease both}
+.lb__fig{width:min(1100px,100%);max-height:86vh}
+.lb__cap{color:#D9D2C6;font-size:.85rem;margin-top:12px;display:flex;justify-content:space-between;gap:14px}
+.lb__nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;display:grid;place-items:center;
+  color:#F3F1EA;border:1px solid rgba(243,241,234,.3);border-radius:999px}
+.lb__nav:hover{background:rgba(243,241,234,.12)}
+
+/* ---------- table ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem}
+.tbl th,.tbl td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:.7rem;letter-spacing:.07em;color:var(--ink3);text-transform:uppercase;font-weight:600}
+.tbl tr:hover td{background:var(--paper)}
+.meter{height:5px;background:var(--line2);border-radius:999px;overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;background:var(--oxide);transition:width .5s cubic-bezier(.2,.8,.3,1)}
+
+/* ---------- misc ---------- */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:2px;padding:clamp(16px,2.2vw,24px)}
+.empty{text-align:center;padding:52px 20px;border:1px dashed var(--line);border-radius:3px}
+.skel{background:linear-gradient(90deg,var(--line2),var(--line),var(--line2));background-size:200% 100%;
+  animation:sh 1.3s linear infinite;border-radius:2px}
+@keyframes sh{to{background-position:-200% 0}}
+.toast{position:fixed;left:50%;bottom:86px;transform:translateX(-50%);background:var(--ink);color:var(--lime);
+  padding:11px 18px;border-radius:999px;font-size:.87rem;font-weight:500;z-index:200;box-shadow:var(--shadow);
+  animation:pop .22s ease both;pointer-events:none;max-width:90vw;text-align:center}
+.crumb{display:flex;gap:8px;align-items:center;font-size:.78rem;color:var(--ink3);padding:18px 0}
+.crumb a:hover{color:var(--oxide)}
+.tabs{display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{padding:11px 15px;font-size:.88rem;font-weight:500;color:var(--ink3);white-space:nowrap;
+  border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s,border-color .15s}
+.tabs button:hover{color:var(--ink)}
+.tabs button.on{color:var(--ink);border-color:var(--oxide)}
+.check{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line2);cursor:pointer;text-align:left;width:100%}
+.box{width:19px;height:19px;border:1px solid var(--ink3);border-radius:2px;flex:none;margin-top:2px;display:grid;place-items:center;transition:background .15s,border-color .15s}
+.check.on .box{background:var(--oxide);border-color:var(--oxide);color:#FFF8F2}
+.check.on .ctxt{color:var(--ink3);text-decoration:line-through;text-decoration-color:var(--line)}
+
+/* ---------- footer ---------- */
+.foot{border-top:1px solid var(--line);background:var(--paper);margin-top:40px;padding:clamp(40px,5vw,64px) 0 108px}
+.foot__grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:32px}
+.foot h4{font-size:.72rem;letter-spacing:.08em;color:var(--ink3);margin-bottom:12px;text-transform:uppercase;font-weight:600}
+.foot li{list-style:none}
+.foot ul{margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.foot a{font-size:.88rem;color:var(--ink2)}
+.foot a:hover{color:var(--oxide)}
+.news{display:flex;gap:8px;margin-top:14px;max-width:340px}
+@media(max-width:820px){.foot__grid{grid-template-columns:1fr 1fr}}
+
+/* ---------- mobile tabbar ---------- */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;background:color-mix(in srgb,var(--lime) 94%,transparent);
+  backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:7px 6px calc(7px + env(safe-area-inset-bottom))}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;font-size:.64rem;
+  font-weight:600;letter-spacing:.02em;color:var(--ink3)}
+.tabbar a.on{color:var(--ink)}
+.tabbar .mk{width:42px;height:42px;border-radius:999px;background:var(--oxide);color:#FFF8F2;display:grid;place-items:center;margin-top:-16px;box-shadow:var(--shadow)}
+@media(max-width:860px){
+  .tabbar{display:flex}
+  .navlinks,.searchbtn span,.desk{display:none}
+  .searchbtn{min-width:0}
+  .nav__in{height:56px;gap:12px}
+  .foot{padding-bottom:104px}
+  .sechead{margin-bottom:24px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+</style>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a href="#/" class="brand">ROOTED</a>
+    <nav class="navlinks" id="navlinks"></nav>
+    <div class="navtools">
+      <span class="preview-pill desk">PREVIEW</span>
+      <button class="searchbtn" data-act="palette" aria-label="Search ROOTED">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span>Search ROOTED</span><span class="kbd" style="margin-left:auto">⌘K</span>
+      </button>
+      <button class="iconbtn desk" data-act="theme" aria-label="Switch theme" id="themebtn"></button>
+      <div class="pos desk">
+        <button class="iconbtn" data-act="notifs" aria-label="Notifications">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          <span class="dot" id="notifdot"></span>
+        </button>
+        <div id="notifpanel"></div>
+      </div>
+      <button class="btn btn--sm desk" data-act="create">Create</button>
+      <a href="#/profile" class="avatar" title="Aarav Sharma">AS</a>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__grid">
+      <div>
+        <div class="brand" style="font-size:1.4rem">ROOTED</div>
+        <p class="prose" style="margin:12px 0 0;max-width:34ch">Sustainable building, sourced from the ground up.</p>
+        <div class="news">
+          <input class="inp" id="newsmail" placeholder="you@studio.in" aria-label="Email for the newsletter">
+          <button class="btn" data-act="subscribe">Join</button>
+        </div>
+        <p class="hint" style="margin-top:9px">One letter a month on materials, craft and climate.</p>
+      </div>
+      <div><h4>Discover</h4><ul>
+        <li><a href="#/explore">Explore</a></li><li><a href="#/projects">Projects</a></li>
+        <li><a href="#/materials">Materials</a></li><li><a href="#/vendors">Vendors</a></li>
+        <li><a href="#/artisans">Craft &amp; artisans</a></li></ul></div>
+      <div><h4>Community</h4><ul>
+        <li><a href="#/community">Feed</a></li><li><a href="#/questions">Questions</a></li>
+        <li><a href="#/guidebook">Guidebook</a></li><li><a href="#/tools">Tools</a></li>
+        <li><a href="#/my-rooted">My ROOTED</a></li></ul></div>
+      <div><h4>Studio</h4><ul>
+        <li><button data-act="soon">About</button></li><li><button data-act="soon">Contact</button></li>
+        <li><button data-act="soon">Instagram</button></li><li><button data-act="soon">Journal</button></li>
+        <li><button data-act="soon">Press kit</button></li></ul></div>
+    </div>
+    <p class="micro" style="margin-top:38px;padding-top:18px;border-top:1px solid var(--line);max-width:82ch;line-height:1.6">
+      ROOTED Preview — a design prototype. Every vendor, artisan, person, project and figure shown here is fictional demo
+      content created for this walkthrough. Nothing is a real certification, quotation or engineering value.</p>
+  </div>
+</footer>
+
+<nav class="tabbar" id="tabbar"></nav>
+<div id="overlay"></div>
+<div id="toasts"></div>
+<script>
+/* ============================================================================
+   ROOTED — DATA LAYER
+   All demo content lives here. Rows are compact tuples mapped into objects
+   below, so adding content = adding one line. When a real backend arrives,
+   replace the bodies of the services in the DATA SERVICES section and nothing
+   else in the app has to change.
+
+   EVERYTHING HERE IS FICTIONAL DEMO CONTENT.
+   ========================================================================== */
+
+const CLIMATES = ['Hot & Dry', 'Warm & Humid', 'Composite', 'Cold', 'High Altitude'];
+
+const CLIMATE_NOTES = {
+  'Hot & Dry': 'Long summers, big day–night swing, low rainfall. Thermal mass and shade do the heavy lifting.',
+  'Warm & Humid': 'High humidity year round, heavy monsoon. Cross ventilation, deep overhangs, rot-resistant materials.',
+  'Composite': 'Hot summers, cool winters, a defined monsoon. Buildings have to work in three different modes.',
+  'Cold': 'Long winters, low sun angles. Compactness, insulation and solar gain matter most.',
+  'High Altitude': 'Thin air, intense sun, freezing nights. Trombe walls and sun-facing massing are traditional answers.'
+};
+
+/* --- users: [name, profession, city] ------------------------------------ */
+const _users = [
+  ['Aarav Sharma','Architect','Mumbai'],           ['Meera Nambiar','Conservation architect','Kochi'],
+  ['Devika Rao','Materials researcher','Bengaluru'],['Ismail Qureshi','Master mason','Jaipur'],
+  ['Tanvi Deshpande','Architect','Pune'],          ['Rohan Mehta','Structural engineer','Ahmedabad'],
+  ['Sneha Iyer','Landscape architect','Chennai'],  ['Kabir Grewal','Builder','Chandigarh'],
+  ['Ananya Bose','Architect','Kolkata'],           ['Vikram Shetty','Contractor','Mangaluru'],
+  ['Farida Merchant','Interior architect','Mumbai'],['Joseph Mathew','Bamboo specialist','Thrissur'],
+  ['Nandini Verma','Urban designer','Delhi'],      ['Arjun Pillai','Site engineer','Thiruvananthapuram'],
+  ['Ritu Kapadia','Architect','Bhuj'],             ['Sameer Tandon','Energy consultant','Noida'],
+  ['Lakshmi Iyengar','Craft researcher','Madurai'],['Tenzin Norbu','Architect','Leh'],
+  ['Prisha Malhotra','Student','Nagpur'],          ['Gaurav Nair','Quantity surveyor','Kozhikode'],
+  ['Shalini Dutt','Architect','Guwahati'],         ['Imran Sayeed','Lime plasterer','Hyderabad'],
+  ['Kavya Reddy','Architect','Visakhapatnam'],     ['Harsh Patel','Developer','Surat'],
+  ['Neelam Joshi','Restoration lead','Udaipur'],   ['Aditya Kulkarni','Architect','Nashik'],
+  ['Zoya Khan','Journalist','Bhopal'],             ['Pranav Menon','Carpenter','Palakkad'],
+  ['Divya Suresh','Architect','Coimbatore'],       ['Mohit Rawat','Builder','Dehradun']
+];
+
+/* --- projects: [name, city, state, studio, year, area, climate, type,
+                  materials, palette, dek, likes] --------------------------- */
+const _projects = [
+  ['Courtyard House','Jaipur','Rajasthan','Studio Aangan',2023,340,'Hot & Dry','Residential',['Lime plaster','Sandstone','Terracotta'],'oxide','A five-bay house folded around a shaded water court that cools the rooms behind it.',412],
+  ['Laterite Home','Kasaragod','Kerala','Mitra & Co.',2022,270,'Warm & Humid','Residential',['Laterite','Reclaimed teak','Clay tile'],'laterite','Load-bearing laterite cut on site, left unrendered, ageing into the red soil around it.',389],
+  ['Earth & Light','Pune','Maharashtra','Field Practice',2024,190,'Composite','Residential',['Compressed earth block','Lime plaster','Bamboo'],'earth','A compact home where every room borrows light from a single south-facing clerestory.',356],
+  ['Desert Passive House','Jaisalmer','Rajasthan','Thar Atelier',2023,410,'Hot & Dry','Residential',['Sandstone','Lime plaster','Jaali screen'],'sand','Twin thick-walled volumes with a jaali corridor that pulls evening wind through the plan.',498],
+  ['Bamboo Pavilion','Thrissur','Kerala','Green Grid',2021,120,'Warm & Humid','Public',['Bamboo','Clay tile','Natural stone'],'bamboo','A community hall on a floodplain, raised on stone pads and roofed in a bamboo grid shell.',301],
+  ['Kutch Weavers Centre','Bhuj','Gujarat','Collective Mitti',2022,520,'Hot & Dry','Institutional',['Compressed earth block','Lime plaster','Terracotta'],'earth','Workshops, dye yards and a shaded street rebuilt with the village mason guild.',444],
+  ['Stepwell Library','Ahmedabad','Gujarat','Baori Studio',2024,660,'Hot & Dry','Public',['Sandstone','Lime plaster','Reclaimed wood'],'sand','Reading rooms step down four levels, trading daylight for a ten-degree temperature drop.',612],
+  ['Tea Estate Quarters','Munnar','Kerala','High Range Works',2020,880,'Cold','Residential',['Natural stone','Reclaimed wood','Clay tile'],'moss','Twenty worker homes on a slope, built from stone cleared during the site cut.',233],
+  ['Ladakh Solar House','Leh','Ladakh','Norbu Associates',2023,210,'High Altitude','Residential',['Rammed earth','Poplar timber','Mud plaster'],'indigo','A Trombe wall house that holds 18°C through a Ladakhi January without a boiler.',571],
+  ['Riverfront Studio','Guwahati','Assam','Brahmaputra Lab',2022,150,'Warm & Humid','Commercial',['Bamboo','Reclaimed wood','Ferrocement'],'bamboo','An artist studio on stilts, detailed to be dismantled and moved when the bank shifts.',276],
+  ['Terracotta Screen Office','Hyderabad','Telangana','Grid & Grain',2024,1200,'Composite','Commercial',['Terracotta','AAC block','Lime plaster'],'oxide','A double-skin office where 14,000 hand-thrown tubes cut west glare by two thirds.',703],
+  ['Chettinad Revival','Karaikudi','Tamil Nadu','Athangudi Works',2021,740,'Hot & Dry','Restoration',['Lime plaster','Athangudi tile','Reclaimed teak'],'haldi','A 1920s merchant house brought back with the original lime and tile trades.',528],
+  ['Mangrove Research Base','Sundarbans','West Bengal','Delta Practice',2023,300,'Warm & Humid','Institutional',['Bamboo','Ferrocement','Clay tile'],'moss','A cyclone-rated field station that floats free of its moorings at four metres.',347],
+  ['Hemp Farmhouse','Dehradun','Uttarakhand','Shivalik Studio',2024,230,'Composite','Residential',['Hempcrete','Lime plaster','Deodar timber'],'earth','One of the first Indian houses cast in hemp-lime, monitored across two winters.',465],
+  ['Fisherman Housing','Alappuzha','Kerala','Backwater Collective',2022,640,'Warm & Humid','Residential',['Laterite','Bamboo','Clay tile'],'laterite','Thirty-two homes replacing tin sheds, built by the families over eleven months.',392],
+  ['Stone Amphitheatre','Hampi','Karnataka','Vijaya Works',2020,410,'Hot & Dry','Public',['Natural stone','Lime plaster','Reclaimed wood'],'sand','Seating cut from boulders already on site, with almost nothing brought in.',318],
+  ['Rammed Earth School','Nagpur','Maharashtra','Vidarbha Studio',2023,980,'Composite','Institutional',['Rammed earth','Bamboo','Terracotta'],'earth','Nine classrooms with 450mm earth walls that hold the afternoon heat outside.',556],
+  ['Coastal Clinic','Mangaluru','Karnataka','Tide Line',2024,380,'Warm & Humid','Institutional',['Laterite','Ferrocement','Clay tile'],'laterite','A district clinic detailed against salt spray, with no air conditioning in circulation.',289],
+  ['Weaver Housing Retrofit','Varanasi','Uttar Pradesh','Ganga Practice',2021,560,'Composite','Restoration',['Lime plaster','Fired brick','Terracotta'],'oxide','Loom rooms reopened to the sky after decades of ad hoc concrete slabs.',244],
+  ['Salt Flat Shelter','Little Rann','Gujarat','Agariya Build',2022,60,'Hot & Dry','Public',['Bamboo','Mud plaster','Reclaimed wood'],'sand','A demountable shelter for salt-pan workers, packed onto one cart.',381]
+];
+
+/* --- materials: [name, family, dek, climates, cost(1-3), carbon(1-5 low..hi),
+                   durability(1-5), availability(1-5), palette, uses] ------ */
+const _materials = [
+  ['Lime plaster','Binder','Breathable render that lets walls dry outward and heals its own hairline cracks.',['Hot & Dry','Warm & Humid','Composite'],2,2,4,4,'sand',['External render','Internal finish','Restoration']],
+  ['Bamboo','Biomass','Fast-growing structural grass; strong in tension, needs treatment and detailing to last.',['Warm & Humid','Composite'],1,1,3,4,'bamboo',['Roof structure','Screens','Scaffolding']],
+  ['Laterite','Stone','Iron-rich block cut straight from the ground, hardening as it dries in air.',['Warm & Humid'],1,2,4,3,'laterite',['Load-bearing walls','Retaining walls','Paving']],
+  ['Compressed earth block','Earth','Soil, sand and a little stabiliser pressed into a precise block. No firing.',['Hot & Dry','Composite'],1,1,3,3,'earth',['Infill walls','Load-bearing walls','Boundary walls']],
+  ['Terracotta','Fired clay','Low-fire clay for tiles, tubes and screens; the oldest cladding in the subcontinent.',['Hot & Dry','Warm & Humid','Composite'],2,3,4,5,'oxide',['Roof tiles','Screens','Flooring']],
+  ['Reclaimed wood','Timber','Salvaged teak, rosewood and deodar from demolished structures, regraded and reused.',['Hot & Dry','Composite','Cold'],3,1,4,2,'wood',['Joinery','Doors','Structure']],
+  ['Natural stone','Stone','Quarried granite, basalt and sandstone; enormous mass, very long life.',['Hot & Dry','Cold','High Altitude'],3,3,5,4,'sand',['Plinths','Walls','Paving']],
+  ['Hempcrete','Bio-composite','Hemp shiv cast with lime. Light, insulating, carbon-storing, not load-bearing.',['Composite','Cold'],3,1,3,1,'earth',['Infill walls','Insulation','Roof decks']],
+  ['Rammed earth','Earth','Damp soil compacted in layered lifts; walls read as visible geology.',['Hot & Dry','Composite','High Altitude'],2,1,4,2,'earth',['Load-bearing walls','Thermal mass','Garden walls']],
+  ['Clay roof tile','Fired clay','Mangalore and country pattern tiles, repairable one piece at a time.',['Warm & Humid','Composite'],2,3,4,5,'oxide',['Pitched roofs','Verandahs']],
+  ['Athangudi tile','Fired clay','Hand-poured cement-oxide tile from Chettinad, each pattern cast in a glass plate.',['Hot & Dry','Composite'],2,3,4,2,'haldi',['Flooring','Courtyards']],
+  ['Jaali screen','Composite','Perforated stone, terracotta or concrete screens that shade while still ventilating.',['Hot & Dry','Composite'],2,3,5,3,'sand',['Facades','Corridors','Parapets']],
+  ['Ferrocement','Cement','Thin mortar over steel mesh; strong shells with a fraction of the material.',['Warm & Humid','Composite'],2,4,4,4,'stone',['Water tanks','Shells','Roofing']],
+  ['AAC block','Cement','Autoclaved aerated concrete; light and insulating, but high in process energy.',['Composite','Hot & Dry'],2,4,4,5,'stone',['Infill walls','Partitions']],
+  ['Fired brick','Fired clay','The default Indian wall unit. Familiar and skilled, but kiln-fired and coal-heavy.',['Composite','Hot & Dry','Cold'],2,4,4,5,'oxide',['Walls','Arches','Paving']],
+  ['Mud plaster','Earth','Clay, sand, straw and cow dung. Cheap, repairable, needs an annual coat.',['Hot & Dry','High Altitude'],1,1,2,5,'earth',['Internal finish','External render']],
+  ['Cork','Biomass','Bark harvested without felling. Excellent insulation, currently all imported.',['Cold','High Altitude'],3,2,3,1,'wood',['Insulation','Flooring','Acoustics']],
+  ['Recycled steel','Metal','Scrap-fed sections. High embodied energy, but endlessly recyclable and light.',['Warm & Humid','Composite','Cold'],3,4,5,4,'stone',['Frames','Trusses','Retrofit']],
+  ['Coconut timber','Timber','Coastal palm stems from senile plantations, dense at the perimeter.',['Warm & Humid'],1,1,3,3,'wood',['Rafters','Furniture','Decking']],
+  ['Poplar timber','Timber','Fast-growing Himalayan poplar used for joists, panels and window frames.',['Cold','High Altitude'],1,1,3,3,'wood',['Joists','Joinery','Cladding']]
+];
+
+/* --- vendors: [name, city, state, cats, price(1-3), verified, dek, since,
+                 served] --------------------------------------------------- */
+const _vendors = [
+  ['EarthForm Materials','Pune','Maharashtra',['Compressed earth block','Rammed earth'],2,1,'Block press operators running mobile units from the client site itself.',2016,['Maharashtra','Goa','Karnataka']],
+  ['Mitti Works','Bhuj','Gujarat',['Compressed earth block','Mud plaster'],1,1,'A mason collective producing stabilised blocks and training crews alongside.',2012,['Gujarat','Rajasthan']],
+  ['TerraBuild','Hyderabad','Telangana',['Terracotta','Jaali screen'],2,1,'Extruded tubes, screens and custom facade units from a family kiln.',2009,['Telangana','Karnataka','Maharashtra']],
+  ['Bamboo Habitat','Thrissur','Kerala',['Bamboo'],2,1,'Treated bamboo poles, engineered panels and a small installation crew.',2014,['Kerala','Tamil Nadu','Karnataka']],
+  ['LimeLab','Jaipur','Rajasthan',['Lime plaster'],2,1,'Slaked lime putty, hydraulic mixes and mockup panels for conservation work.',2011,['Rajasthan','Delhi','Uttar Pradesh']],
+  ['Root & Stone','Bengaluru','Karnataka',['Natural stone','Jaali screen'],3,1,'Quarry-direct granite and basalt with in-house cutting and finishing.',2007,['Karnataka','Tamil Nadu','Telangana']],
+  ['Kavery Laterite','Kasaragod','Kerala',['Laterite'],1,1,'Hand-cut laterite blocks in three sizes, supplied within 200km of the quarry.',2005,['Kerala','Karnataka']],
+  ['Deccan Reclaim','Mumbai','Maharashtra',['Reclaimed wood'],3,0,'Salvaged teak and rosewood from demolition, regraded and kiln-dried.',2018,['Maharashtra','Gujarat']],
+  ['Hemp House India','Dehradun','Uttarakhand',['Hempcrete'],3,0,'Hemp shiv and binder kits with on-site casting supervision.',2020,['Uttarakhand','Himachal Pradesh','Delhi']],
+  ['Athangudi Tile Co.','Karaikudi','Tamil Nadu',['Athangudi tile'],2,1,'Twelve families producing hand-poured tiles in around 90 patterns.',1998,['Tamil Nadu','Kerala']],
+  ['Coastal Ferro','Mangaluru','Karnataka',['Ferrocement'],2,0,'Ferrocement tanks, shells and roof elements cast to order.',2015,['Karnataka','Kerala','Goa']],
+  ['Himalaya Timber Union','Leh','Ladakh',['Poplar timber','Reclaimed wood'],2,1,'A growers union supplying poplar and willow through the short building season.',2013,['Ladakh','Himachal Pradesh']],
+  ['Sunder Clay','Kolkata','West Bengal',['Clay roof tile','Fired brick'],1,0,'Country tiles and table-moulded brick from the delta clay belt.',2003,['West Bengal','Assam','Odisha']],
+  ['Kiln & Co.','Ahmedabad','Gujarat',['Fired brick','Terracotta'],2,1,'Zig-zag kiln brick with published fuel figures for every batch.',2017,['Gujarat','Rajasthan','Madhya Pradesh']],
+  ['Thar Stoneworks','Jaisalmer','Rajasthan',['Natural stone','Jaali screen'],2,1,'Yellow sandstone blocks, lintels and CNC-cut jaali panels.',2010,['Rajasthan','Haryana','Delhi']]
+];
+
+/* --- artisans: [name, craft, city, state, years, dek, palette] ----------- */
+const _artisans = [
+  ['Ismail Qureshi','Lime plaster','Jaipur','Rajasthan',34,'Araish and chuna polish, including the burnished mirror finish.','sand'],
+  ['Ramesh Achari','Stone masonry','Hampi','Karnataka',41,'Dry stone and dressed granite; trained in temple repair work.','stone'],
+  ['Sabita Pal','Terracotta','Bankura','West Bengal',27,'Roof finials, screens and relief panels thrown and fired on site.','oxide'],
+  ['Joseph Mathew','Bamboo construction','Thrissur','Kerala',19,'Grid shells and treated pole framing for spans up to fourteen metres.','bamboo'],
+  ['Hari Prasad Sthapati','Traditional woodwork','Karaikudi','Tamil Nadu',38,'Teak columns, brackets and door frames using mortise joinery.','wood'],
+  ['Tsering Dolma','Mud plaster','Leh','Ladakh',22,'Markalak clay finishes and annual re-plastering of monastery walls.','earth'],
+  ['Bhanu Rathod','Athangudi tile','Karaikudi','Tamil Nadu',24,'Hand-poured oxide tiles, custom patterns from a client drawing.','haldi'],
+  ['Kalu Ram Meena','Jaali carving','Jaisalmer','Rajasthan',31,'Pierced sandstone screens cut freehand from a chalked grid.','sand'],
+  ['Nirmala Devi','Mud relief','Bhuj','Gujarat',29,'Lippan mirror-and-clay relief for interior walls and niches.','earth'],
+  ['Anwar Sheikh','Brick arching','Lucknow','Uttar Pradesh',36,'Flat arches, vaults and jack arches laid without formwork.','oxide'],
+  ['Devan Nair','Laterite cutting','Kasaragod','Kerala',26,'Quarry cutting and coursing of laterite for exposed walls.','laterite'],
+  ['Pema Angmo','Timber joinery','Leh','Ladakh',17,'Poplar and willow window frames in the Ladakhi pattern.','wood'],
+  ['Girish Chavan','Lime flooring','Nashik','Maharashtra',21,'Polished lime and marble-dust floors laid in continuous pours.','sand'],
+  ['Sujata Mahato','Thatch and screens','Guwahati','Assam',23,'Ikra and thatch walling detailed for high rainfall.','bamboo'],
+  ['Mohd. Iqbal','Stucco restoration','Hyderabad','Telangana',33,'Lime stucco cornices and mouldings matched to surviving fragments.','stone']
+];
+
+/* --- posts: [userIdx, content, tags, likes, comments, hasImage, palette] - */
+const _posts = [
+  [21,"I've been experimenting with lime plaster on a coastal site for eight months. Three mixes, same wall, same exposure. The one with 15% brick dust is the only one with no hairline cracking so far. Happy to share the mix ratios if useful.",['Lime plaster','Coastal','Experiment'],184,23,1,'sand'],
+  [9,"Has anyone sourced laterite blocks anywhere near Mumbai? Everything I find is a 600km haul from Kerala, which kills the whole point. Looking for anything within 250km.",['Laterite','Sourcing','Maharashtra'],92,31,0,'laterite'],
+  [19,"How much does a bamboo structure actually cost? Every article says 'cheap' and every quote I get says otherwise. Posting our real numbers for a 120 sqm pavilion below.",['Bamboo','Cost','Reality check'],241,44,0,'bamboo'],
+  [4,"Sharing our passive cooling experiment from Pune. Two identical rooms, one with a jaali screen and one without. 4.2°C difference at 3pm through May. Data logger graphs attached.",['Passive cooling','Jaali','Data'],367,52,1,'oxide'],
+  [17,"Finished re-plastering the north wall in Leh before the snow. Markalak clay, three coats, all of it from a pit twenty minutes away. Forty years and the technique has not changed.",['Mud plaster','Ladakh','Craft'],298,19,1,'earth'],
+  [2,"Embodied carbon numbers for Indian materials are all over the place. Half the studies quote European data. If anyone has actual kiln-level measurements from an Indian producer, I would love to see them.",['Carbon','Research','Data'],156,38,0,'stone'],
+  [11,"We just finished a bamboo grid shell over a community hall. The hardest part was not structure, it was convincing the client's bank that it would last twenty years.",['Bamboo','Community','Finance'],203,27,1,'bamboo'],
+  [14,"Bhuj update: the block press has made 9,400 blocks this month, all from soil off the site. Two women from the village now run the press independently.",['Earth block','Kutch','Training'],412,33,1,'earth'],
+  [0,"Unpopular view — most 'sustainable' Indian projects I see are just concrete with a bamboo screen stapled to the front. The material choice happens after the structure is already decided.",['Opinion','Practice'],529,87,0,'ink'],
+  [24,"Restoration question: when do you stop? We have a 1910 haveli where 40% of the lime is original. Client wants it all replaced so it looks uniform. I want to keep the patchwork.",['Restoration','Lime plaster','Ethics'],187,41,1,'haldi'],
+  [7,"Reclaimed teak prices in Punjab have doubled in two years. At this point new FSC timber is cheaper than salvage. Not sure that is the outcome anyone wanted.",['Reclaimed wood','Cost'],134,29,0,'wood'],
+  [12,"Delhi practitioners — what are you actually specifying for insulation now? Everything available locally is either EPS or rockwool and neither sits well with the rest of my spec.",['Insulation','Delhi','Specification'],98,36,0,'stone'],
+  [1,"A 300 year old Kochi warehouse is being demolished this month. Roughly 80 tonnes of teak and 4,000 country tiles. If anyone can take material, message me — otherwise it goes to landfill.",['Salvage','Kerala','Urgent'],476,64,1,'wood'],
+  [16,"Documented eleven Athangudi tile patterns last week that are not in any published record. Three of the makers are over seventy and have nobody learning from them.",['Craft','Tamil Nadu','Documentation'],388,25,1,'haldi'],
+  [5,"Structural note for anyone doing rammed earth: your lift height is the whole game. We went from 150mm to 100mm lifts and compaction consistency improved immediately.",['Rammed earth','Structure','Technique'],219,18,1,'earth'],
+  [20,"Monsoon post-mortem from Guwahati. The stilted studio took 1.1m of water under the floor and lost nothing. The neighbour's slab-on-grade lost everything.",['Flood','Assam','Detailing'],301,22,1,'moss'],
+  [22,"Does anyone actually use the climate zone maps when specifying? I find the five-zone classification far too coarse for a country this size.",['Climate','Specification','Discussion'],143,47,0,'indigo'],
+  [3,"Lime putty needs to be slaked longer than everybody thinks. Three months minimum. Six is better. Everything wrong with modern lime work starts with rushing this.",['Lime plaster','Craft','Technique'],265,31,0,'sand'],
+  [27,"Coconut timber rafters after fourteen years in Palakkad. Zero treatment beyond the initial oil. Posting close-ups of the connections.",['Coconut timber','Longevity','Kerala'],178,14,1,'wood'],
+  [8,"Kolkata question — has anyone here worked with the old table-moulded brick makers in the delta? Trying to match a repair and modern wire-cut looks wrong next to it.",['Fired brick','Restoration','Bengal'],112,26,0,'oxide'],
+  [25,"Hemp farmhouse winter two complete. Internal temperature never dropped below 14°C without heating, outside hit -1°C. Wall moisture readings are stable.",['Hempcrete','Monitoring','Winter'],334,39,1,'earth'],
+  [13,"Site photo from the Nagpur school. 450mm rammed earth walls going up with nine local labourers, none of whom had done earth construction before this job.",['Rammed earth','Education','Nagpur'],287,21,1,'earth'],
+  [10,"Interiors people — what are you using instead of plywood? Everything I test either off-gasses or delaminates in Mumbai humidity.",['Interiors','Humidity','Materials'],127,43,0,'wood'],
+  [29,"Dehradun builders: the deodar supply chain has become genuinely difficult. Two mills closed this year. Planning any timber project over 100 cubic feet needs a six month lead now.",['Timber','Supply','Uttarakhand'],95,17,0,'wood']
+];
+
+/* --- questions: [q, userIdx, tags, votes, [[userIdx, answer, votes]]] ---- */
+const _questions = [
+  ['How does lime plaster perform in coastal climates?',1,['Lime plaster','Coastal','Durability'],47,[
+    [21,'It performs well, but only if you let it stay breathable. The failures I see on the coast are almost always a cement skim or an acrylic paint trapping moisture behind the lime. Use a hydraulic lime for the base coats, keep a generous drip detail at every sill, and expect to recoat exposed elevations every seven or eight years.',38],
+    [3,'Add pozzolan. Brick dust or rice husk ash at 10-15% gives you a much better set in humid air. We have panels on a Kochi site at four years with no spalling.',24]]],
+  ['Where can I find laterite in Kerala?',9,['Laterite','Sourcing','Kerala'],31,[
+    [13,'Kasaragod and Kannur are still the main cutting belts. Buy within about 150km of the quarry or transport wipes out both the cost and the carbon case.',29],
+    [1,'Ask for blocks cut at least a month earlier. Fresh laterite is soft and people lose a lot in handling.',15]]],
+  ['Has anyone built with compressed earth blocks at scale?',5,['Earth block','Structure','Scale'],39,[
+    [14,'We passed 9,000 blocks on the Kutch centre. The bottleneck is curing space, not pressing. Plan for 28 days of stacked curing area from day one or you will stall.',33]]],
+  ['What is a realistic cost premium for a bamboo roof?',19,['Bamboo','Cost'],28,[
+    [11,'Between 15 and 30% over steel truss for a comparable span, once you include treatment and skilled labour. The saving is not capital cost, it is embodied carbon and repairability.',26]]],
+  ['Is hempcrete legal to build with in India?',15,['Hempcrete','Regulation'],22,[
+    [5,'There is no specific code clause, so it goes through as a non-load-bearing infill with a conventional frame. Treat it as insulation, not structure, and approvals are usually straightforward.',19]]],
+  ['How do you stop bamboo from being eaten?',18,['Bamboo','Treatment'],25,[
+    [11,'Borax-boric soak, correct harvest age of three to four years, and never let an end grain sit in standing water. Detailing matters more than chemistry.',23]]],
+  ['Best flooring for a humid Kerala house?',13,['Flooring','Warm & Humid'],19,[
+    [1,'Red oxide or clay tile over anything engineered. Both breathe, both repair, and both get better with age.',21]]],
+  ['How thick should a rammed earth wall be in a composite climate?',25,['Rammed earth','Thermal'],33,[
+    [5,'450mm is the working minimum for thermal lag in Nagpur or Pune. Below 350mm you get the weight without the benefit.',30]]],
+  ['Are AAC blocks actually sustainable?',22,['AAC block','Carbon','Debate'],41,[
+    [2,'Lower than fired brick per unit of wall, higher than earth by a wide margin. It is a better default, not a good answer.',35],
+    [0,'They also need a cement render, which quietly adds back much of what you saved.',18]]],
+  ['What is the lead time on custom terracotta jaali?',10,['Terracotta','Procurement'],17,[
+    [6,'Ten to fourteen weeks from an approved sample for anything over a thousand units. Add four weeks if the profile is new to the kiln.',16]]],
+  ['How do you convince a client to choose earth over concrete?',28,['Practice','Client'],36,[
+    [0,'Stop arguing carbon and start showing them a finished wall. Take them to a building that is fifteen years old. That does more than any figure.',44]]],
+  ['Can reclaimed timber be used structurally?',7,['Reclaimed wood','Structure'],24,[
+    [5,'Yes, but it must be regraded by an engineer, and you should assume you will reject a third of what arrives. Budget for that.',22]]],
+  ['What is the right lime to sand ratio for external render?',21,['Lime plaster','Technique'],29,[
+    [3,'1:2.5 by volume for a base coat, 1:3 for the finish, and a well-graded sharp sand. If your sand is bad, no ratio will save you.',27]]],
+  ['How do buildings in Ladakh stay warm without heating?',17,['High Altitude','Passive'],44,[
+    [17,'South glazing, a Trombe wall, a compact plan and a buffer of unheated store rooms on the north. It is geometry before technology.',40]]]
+];
+
+/* --- articles: [title, category, userIdx, mins, dek, palette] ------------ */
+const _articles = [
+  ['The courtyard is a climate device, not a decoration','Traditional Architecture',0,9,'How the Indian courtyard actually moves air, and why most contemporary versions do not work.','oxide'],
+  ['Reading soil before you build on it','Materials',2,12,'A field guide to the jar test, the ribbon test and knowing when your site can become your wall.','earth'],
+  ['Lime, slowly','Materials',21,14,'Slaking, ageing and the long chemistry that modern site schedules refuse to allow.','sand'],
+  ['The five climate zones are not enough','Climate',15,8,'Why a national classification breaks down the moment you design for a specific valley.','indigo'],
+  ['What a jaali actually does','Traditional Architecture',3,7,'Shade, pressure difference and glare — the three jobs of a perforated screen.','sand'],
+  ['Bamboo is a structure, not a finish','Construction',11,11,'Treating bamboo as a cladding material is why it keeps failing on Indian sites.','bamboo'],
+  ['The economics of salvage','Sustainability',19,10,'Reclaimed material is only cheap when the demolition and the design happen in the same year.','wood'],
+  ['Chettinad, room by room','Restoration',24,16,'A restoration diary from a merchant house in Karaikudi, across three monsoons.','haldi'],
+  ['Who owns a craft?','Indian Craft',16,13,'Documentation, attribution and the uncomfortable economics of reviving a dying trade.','oxide'],
+  ['Thermal mass explained without equations','Climate',5,6,'Why a thick wall works in Jaisalmer and fails in Kochi, in plain language.','stone'],
+  ['Building in the delta','Construction',20,12,'Flood-first detailing from the Sundarbans, where the ground is a negotiation.','moss'],
+  ['The mason is the drawing','Indian Craft',3,9,'What happens to a design when the person building it has forty years of judgement.','earth'],
+  ['Hemp, two winters in','Materials',15,11,'Monitoring data from the first hemp-lime house in Uttarakhand.','earth'],
+  ['Against the eco-aesthetic','Sustainability',0,7,'Sustainability is a set of decisions, not a colour palette or a texture.','ink']
+];
+
+/* --- regions: [state, x, y, craft, materials, climate, projectName] ------ */
+const _regions = [
+  ['Ladakh',146,60,'Mud plaster and poplar joinery',['Rammed earth','Mud plaster','Poplar timber'],'High Altitude','Ladakh Solar House'],
+  ['Rajasthan',96,164,'Jaali carving and araish lime',['Natural stone','Lime plaster','Jaali screen'],'Hot & Dry','Desert Passive House'],
+  ['Gujarat',76,224,'Lippan mud relief and block pressing',['Compressed earth block','Lime plaster','Terracotta'],'Hot & Dry','Kutch Weavers Centre'],
+  ['Maharashtra',118,290,'Lime flooring and stone masonry',['Compressed earth block','Lime plaster','Bamboo'],'Composite','Earth & Light'],
+  ['West Bengal',250,232,'Terracotta relief and table-moulded brick',['Terracotta','Fired brick','Bamboo'],'Warm & Humid','Mangrove Research Base'],
+  ['Karnataka',144,360,'Granite dressing and laterite cutting',['Natural stone','Laterite','Clay roof tile'],'Composite','Stone Amphitheatre'],
+  ['Tamil Nadu',176,402,'Athangudi tiles and teak joinery',['Athangudi tile','Lime plaster','Reclaimed wood'],'Hot & Dry','Chettinad Revival'],
+  ['Kerala',146,428,'Laterite coursing and bamboo framing',['Laterite','Bamboo','Clay roof tile'],'Warm & Humid','Laterite Home']
+];
+
+/* ---------------------------------------------------------------------------
+   MAPPERS — tuples become objects
+   ------------------------------------------------------------------------ */
+const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+const initials = n => n.split(' ').map(w=>w[0]).slice(0,2).join('').toUpperCase();
+
+const USERS = _users.map((u,i)=>({
+  id:'u'+i, name:u[0], profession:u[1], city:u[2], initials:initials(u[0]),
+  bio:`${u[1]} based in ${u[2]}. Interested in low-carbon materials, passive design and traditional construction.`
+}));
+
+const PROJECTS = _projects.map((p,i)=>({
+  id:slug(p[0]), kind:'project', name:p[0], city:p[1], state:p[2], studio:p[3], year:p[4], area:p[5],
+  climate:p[6], type:p[7], materials:p[8], palette:p[9], dek:p[10], likes:p[11], seed:i*37+11,
+  location:`${p[1]}, ${p[2]}`,
+  budget: p[5] > 600 ? '₹2–5 Cr' : p[5] > 300 ? '₹60L–2 Cr' : '₹20–60L',
+  story:`${p[10]} The brief asked for a building that could be maintained by the people who would use it, with material sourced as close to the site as the trades allowed.`,
+  approach:`Massing was driven by ${p[6].toLowerCase()} conditions rather than plot geometry. Openings were sized against the summer sun path first, then adjusted for view. Nothing in the palette needs a specialist to repair.`,
+  construction:`Built over ${8 + (i%14)} months with a crew drawn largely from ${p[1]}. ${p[8][0]} was the governing trade, and the sequence was set around its curing and drying times rather than the other way round.`,
+  lessons:[`Order ${p[8][0].toLowerCase()} earlier than feels necessary — lead times moved twice.`,
+           'Build a full-height sample panel on site before signing off the finish.',
+           'The maintenance conversation should happen with the client in month one, not at handover.']
+}));
+
+const MATERIALS = _materials.map((m,i)=>({
+  id:slug(m[0]), kind:'material', name:m[0], family:m[1], dek:m[2], climates:m[3],
+  cost:m[4], carbon:m[5], durability:m[6], availability:m[7], palette:m[8], uses:m[9], seed:i*53+7,
+  costLabel:['','Low','Moderate','High'][m[4]],
+  overview:`${m[2]} In Indian practice it appears most often in ${m[3][0].toLowerCase()} regions, where the local trades already know how to work it.`,
+  pros:['Widely repairable with local skill','Low transport distance when sourced regionally','Ages visibly rather than failing suddenly','Familiar to experienced site crews'],
+  cons:['Quality varies significantly between suppliers','Needs a mockup panel before sign-off','Wet-season work slows the programme','Specification language is not standardised'],
+  note:'Ratings are illustrative demo values for this prototype, not engineering data.'
+}));
+
+const VENDORS = _vendors.map((v,i)=>({
+  id:slug(v[0]), kind:'vendor', name:v[0], city:v[1], state:v[2], cats:v[3], price:v[4],
+  verified:!!v[5], dek:v[6], since:v[7], served:v[8], seed:i*29+3,
+  location:`${v[1]}, ${v[2]}`,
+  priceLabel:['','₹','₹₹','₹₹₹'][v[4]],
+  badges:(i%3===0)?['Demo badge: local sourcing','Demo badge: crew training']:['Demo badge: local sourcing'],
+  about:`${v[6]} Working since ${v[7]}, mostly with architects and owner-builders rather than large contractors.`,
+  services:['Supply to site','Sample panels and mockups','On-site crew supervision','Specification support'],
+  reviews:[{by:USERS[(i*3)%USERS.length], text:'Samples arrived quickly and matched what was delivered. Communication was direct.', rating:5},
+           {by:USERS[(i*7)%USERS.length], text:'Good material. Scheduling during monsoon needed more slack than quoted.', rating:4}]
+}));
+
+const ARTISANS = _artisans.map((a,i)=>({
+  id:slug(a[0]), kind:'artisan', name:a[0], craft:a[1], city:a[2], state:a[3], years:a[4],
+  dek:a[5], palette:a[6], initials:initials(a[0]), seed:i*41+19,
+  location:`${a[2]}, ${a[3]}`,
+  bio:`${a[5]} ${a[0].split(' ')[0]} has worked in ${a[2]} for ${a[4]} years and takes on between four and eight projects a year, usually alongside a small family crew.`,
+  works:['Residential restoration','New-build finishes','Training workshops','Sample panels']
+}));
+
+const POSTS = _posts.map((p,i)=>({
+  id:'post-'+i, kind:'post', author:USERS[p[0]], content:p[1], tags:p[2], likes:p[3],
+  commentCount:p[4], hasImage:!!p[5], palette:p[6], seed:i*17+5,
+  time:['2h','4h','7h','1d','1d','2d','2d','3d','4d','5d','6d','1w','1w','2w'][i%14],
+  comments:[
+    {by:USERS[(i*5+2)%USERS.length], text:'This is genuinely useful, thank you for posting the actual numbers.'},
+    {by:USERS[(i*11+6)%USERS.length], text:'We ran into the same thing last year. Ended up changing the sequence entirely.'}
+  ]
+}));
+
+const QUESTIONS = _questions.map((q,i)=>({
+  id:slug(q[0]).slice(0,44), kind:'question', title:q[0], author:USERS[q[1]], tags:q[2], votes:q[3],
+  time:['3h','6h','1d','2d','3d','4d','5d','1w','1w','2w','2w','3w','1mo','1mo'][i%14],
+  answers:q[4].map((a,j)=>({id:'a'+i+'-'+j, by:USERS[a[0]], text:a[1], votes:a[2]}))
+}));
+
+const ARTICLES = _articles.map((a,i)=>({
+  id:slug(a[0]).slice(0,48), kind:'article', title:a[0], category:a[1], author:USERS[a[2]],
+  mins:a[3], dek:a[4], palette:a[5], seed:i*23+13,
+  sections:[
+    {h:'Where this starts', p:`${a[4]} The question is less about performance figures than about what a building crew can actually do in the time and weather available to them.`},
+    {h:'What the evidence shows', p:'Measured performance on Indian sites rarely matches published figures, because published figures assume a laboratory wall, a laboratory installer and a laboratory climate. The gap is not a failure of the material. It is a failure to describe the conditions honestly.'},
+    {h:'Working with it', p:'Begin with a sample panel at full height in the real orientation. Leave it up for one full season. Almost every specification argument disappears when everyone has stood in front of the same wall in July.'},
+    {h:'What to take away', p:'Choose the material your region already knows how to repair. Design the details around its weaknesses rather than its brochure. And write the maintenance plan at the same time as the drawings, not after handover.'}
+  ]
+}));
+
+const ARTICLE_CATS = ['Traditional Architecture','Materials','Climate','Construction','Restoration','Sustainability','Indian Craft'];
+const REGIONS = _regions.map(r=>({name:r[0], x:r[1], y:r[2], craft:r[3], materials:r[4], climate:r[5], project:r[6]}));
+
+const NOTIFICATIONS = [
+  {who:USERS[4], text:'liked your project Courtyard House', time:'12m', unread:true, to:'#/projects/courtyard-house'},
+  {who:USERS[11], text:'commented on your idea about jaali screens', time:'1h', unread:true, to:'#/community'},
+  {who:USERS[2], text:'upvoted your answer on lime in coastal climates', time:'3h', unread:true, to:'#/questions'},
+  {who:USERS[16], text:'published a new article in Indian Craft', time:'6h', unread:false, to:'#/guidebook'},
+  {who:USERS[7], text:'started following you', time:'1d', unread:false, to:'#/profile'},
+  {who:USERS[13], text:'added a project in Kerala, a region you follow', time:'2d', unread:false, to:'#/projects'}
+];
+
+const TRENDING = ['lime plaster','laterite Kerala','passive cooling','compressed earth block','bamboo cost','jaali screen','rammed earth school','Athangudi tile'];
+
+/* ---------------------------------------------------------------------------
+   DATA SERVICES — the seam for a future backend.
+   Swap these bodies for fetch() calls and the UI needs no changes.
+   ------------------------------------------------------------------------ */
+const services = {
+  projects:{ all:()=>[...store.newProjects, ...PROJECTS], byId:id=>services.projects.all().find(p=>p.id===id) },
+  materials:{ all:()=>MATERIALS, byId:id=>MATERIALS.find(m=>m.id===id) },
+  vendors:{ all:()=>VENDORS, byId:id=>VENDORS.find(v=>v.id===id) },
+  artisans:{ all:()=>ARTISANS, byId:id=>ARTISANS.find(a=>a.id===id) },
+  community:{ all:()=>[...store.newPosts, ...POSTS], byId:id=>services.community.all().find(p=>p.id===id) },
+  questions:{ all:()=>QUESTIONS, byId:id=>QUESTIONS.find(q=>q.id===id) },
+  articles:{ all:()=>ARTICLES, byId:id=>ARTICLES.find(a=>a.id===id) },
+  users:{ me:()=>USERS[0] }
+};
+
+/* ============================================================================
+   ARTWORK
+   Every image in ROOTED is generated as an SVG elevation from a seed, so the
+   prototype ships with zero image assets and works offline. To swap in real
+   photography later, replace art() with an <img src> lookup — it is the only
+   place imagery is produced.
+   ========================================================================== */
+
+const ART_PAL = {
+  oxide:    ['#F0DCCC','#DCB59A','#B4553A','#8E3C26','#D9784E','#7A3520'],
+  laterite: ['#EFD9CE','#D3A288','#A4442C','#7C2F1C','#C4623F','#6B2A18'],
+  earth:    ['#EFE3CE','#D9BE93','#A87A4B','#7E5630','#C79A61','#6B4626'],
+  sand:     ['#F2EADA','#DFCFA9','#C0A470','#95784B','#D4BE8C','#7E6440'],
+  bamboo:   ['#E9E9D2','#C6CC9C','#8B9A57','#5F6E38','#A8B673','#4C5A2C'],
+  wood:     ['#EBDECD','#CDAE87','#966A42','#6E4B2C','#B78A5D','#5A3C23'],
+  stone:    ['#E8E7E2','#C4C3BC','#8F8E86','#67665F','#A9A8A0','#54534D'],
+  moss:     ['#E3E6DA','#B6C0A4','#6E7F5C','#4C5A3F','#8D9B79','#3D4933'],
+  indigo:   ['#DDE3E7','#A9BAC4','#3F5C6D','#28414F','#6E8B9B','#1D3240'],
+  haldi:    ['#F5EBD2','#E3CD96','#C0892E','#95661C','#D3AE5E','#7A5316'],
+  ink:      ['#E4E1DA','#B9B4AA','#6B655B','#453F37','#938C81','#332E28']
+};
+
+function prng(seed){ let s = (seed * 9301 + 49297) % 233280 || 7;
+  return () => (s = (s * 9301 + 49297) % 233280) / 233280; }
+
+const _artCache = new Map();
+
+/** Generate a deterministic architectural elevation as an SVG string. */
+function art(seed, palName, variant = 'elevation'){
+  const key = seed + '|' + palName + '|' + variant;
+  if (_artCache.has(key)) return _artCache.get(key);
+  const P = ART_PAL[palName] || ART_PAL.earth;
+  const r = prng(seed);
+  const W = 800, H = 600, uid = 'a' + seed + palName.slice(0,3) + variant.slice(0,2);
+  const px = [];
+
+  px.push(`<defs><linearGradient id="${uid}s" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="${P[0]}"/><stop offset="1" stop-color="${P[1]}"/></linearGradient>
+    <linearGradient id="${uid}g" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="${P[4]}"/><stop offset="1" stop-color="${P[5]}"/></linearGradient></defs>`);
+  px.push(`<rect width="${W}" height="${H}" fill="url(#${uid}s)"/>`);
+
+  // sun / moon disc
+  const sx = 110 + r() * 560, sy = 80 + r() * 110, sr = 38 + r() * 46;
+  px.push(`<circle cx="${sx.toFixed(0)}" cy="${sy.toFixed(0)}" r="${sr.toFixed(0)}" fill="${P[4]}" opacity="0.5"/>`);
+
+  // distant range
+  const hy = 330 + r() * 40;
+  let range = `M0,${H} L0,${(hy + 40).toFixed(0)}`;
+  for (let x = 0; x <= W; x += 100) range += ` L${x},${(hy - r() * 70).toFixed(0)}`;
+  range += ` L${W},${H} Z`;
+  px.push(`<path d="${range}" fill="${P[1]}" opacity="0.65"/>`);
+
+  // building masses
+  const ground = H - 74;
+  let x = -30 + r() * 40;
+  let jaaliDone = false, archDone = false;
+  while (x < W){
+    const w = 70 + r() * 150;
+    const h = 100 + r() * 300;
+    const top = ground - h;
+    const tone = P[2 + Math.floor(r() * 2)];
+    const arched = !archDone && r() > 0.45;
+    if (arched){
+      archDone = true;
+      px.push(`<path d="M${x.toFixed(0)},${ground} L${x.toFixed(0)},${(top + w / 2).toFixed(0)} A${(w / 2).toFixed(0)},${(w / 2).toFixed(0)} 0 0 1 ${(x + w).toFixed(0)},${(top + w / 2).toFixed(0)} L${(x + w).toFixed(0)},${ground} Z" fill="${tone}"/>`);
+    } else {
+      px.push(`<rect x="${x.toFixed(0)}" y="${top.toFixed(0)}" width="${w.toFixed(0)}" height="${h.toFixed(0)}" fill="${tone}"/>`);
+      if (r() > 0.55) px.push(`<rect x="${(x - 8).toFixed(0)}" y="${(top - 12).toFixed(0)}" width="${(w + 16).toFixed(0)}" height="12" fill="${P[3]}"/>`);
+    }
+    // openings
+    const cols = Math.max(1, Math.floor(w / 46));
+    if (!jaaliDone && r() > 0.5 && h > 180){
+      jaaliDone = true;
+      for (let gy = top + 34; gy < ground - 30; gy += 26)
+        for (let gx = x + 12; gx < x + w - 16; gx += 20)
+          px.push(`<rect x="${gx.toFixed(0)}" y="${gy.toFixed(0)}" width="9" height="13" rx="4" fill="${P[0]}" opacity="0.62"/>`);
+    } else {
+      for (let c = 0; c < cols; c++){
+        if (r() > 0.62) continue;
+        const ox = x + 16 + c * (w / cols);
+        const oy = top + 44 + r() * (h - 130);
+        const ow = Math.min(26, w / cols - 12), oh = 34 + r() * 40;
+        px.push(`<path d="M${ox.toFixed(0)},${(oy + oh).toFixed(0)} L${ox.toFixed(0)},${(oy + ow / 2).toFixed(0)} A${(ow / 2).toFixed(0)},${(ow / 2).toFixed(0)} 0 0 1 ${(ox + ow).toFixed(0)},${(oy + ow / 2).toFixed(0)} L${(ox + ow).toFixed(0)},${(oy + oh).toFixed(0)} Z" fill="${P[0]}" opacity="0.72"/>`);
+      }
+    }
+    x += w + 4 + r() * 26;
+  }
+
+  // ground + horizon
+  px.push(`<rect x="0" y="${ground}" width="${W}" height="${H - ground}" fill="url(#${uid}g)"/>`);
+  px.push(`<rect x="0" y="${ground}" width="${W}" height="2" fill="${P[5]}" opacity="0.4"/>`);
+  for (let i = 0; i < 5; i++){
+    const ly = ground + 16 + i * 12;
+    px.push(`<rect x="${(r() * 300).toFixed(0)}" y="${ly}" width="${(120 + r() * 420).toFixed(0)}" height="1.5" fill="${P[5]}" opacity="0.2"/>`);
+  }
+
+  const svg = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">${px.join('')}</svg>`;
+  _artCache.set(key, svg);
+  return svg;
+}
+
+/** <div class="art ..."> wrapper */
+function artBox(seed, pal, cls = 'ar43', variant = 'elevation'){
+  return `<div class="art ${cls}">${art(seed, pal, variant)}</div>`;
+}
+
+/* ---------------------------------------------------------------------------
+   ICONS (Lucide-style inline paths)
+   ------------------------------------------------------------------------ */
+const ICONS = {
+  heart:'<path d="M19 14c1.5-1.5 2-3.2 2-4.8A4.7 4.7 0 0 0 12 6.5 4.7 4.7 0 0 0 3 9.2c0 1.6.5 3.3 2 4.8l7 7Z"/>',
+  bookmark:'<path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>',
+  message:'<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l2-4.6A8.4 8.4 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/>',
+  share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/>',
+  search:'<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  plus:'<path d="M12 5v14M5 12h14"/>',
+  check:'<path d="M20 6 9 17l-5-5"/>',
+  x:'<path d="M18 6 6 18M6 6l12 12"/>',
+  chevron:'<path d="m9 18 6-6-6-6"/>',
+  down:'<path d="m6 9 6 6 6-6"/>',
+  pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+  moon:'<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/>',
+  layers:'<path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>',
+  filter:'<path d="M3 5h18M7 12h10M10 19h4"/>',
+  home:'<path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>',
+  compass:'<circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/>',
+  users:'<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 5.5a3.5 3.5 0 0 1 0 6M18 20a6.5 6.5 0 0 0-2.5-5.1"/>',
+  user:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
+  book:'<path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22z"/>',
+  tool:'<path d="M14.7 6.3a4 4 0 0 0 5 5l-9.4 9.4a2.1 2.1 0 0 1-3-3Z"/><path d="M14.7 6.3 18 3"/>',
+  up:'<path d="m18 15-6-6-6 6"/>',
+  star:'<path d="m12 3 2.7 5.8 6.3.8-4.6 4.4 1.2 6.2-5.6-3-5.6 3 1.2-6.2L3 9.6l6.3-.8z"/>',
+  scale:'<path d="M12 3v18M6 7l-4 8h8zM18 7l-4 8h8z"/>',
+  calc:'<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 11h1M12 11h1M16 11h1M8 15h1M12 15h1M16 15h1M8 19h5"/>',
+  leaf:'<path d="M11 20A7 7 0 0 1 4 13c0-6 6-9 16-10 0 10-4 16-9 17Z"/><path d="M8 17c1-4 4-7 8-9"/>',
+  arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+  grid:'<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
+  expand:'<path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>'
+};
+function ic(name, size = 16, sw = 1.7){
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round">${ICONS[name] || ''}</svg>`;
+}
+
+/* ---------------------------------------------------------------------------
+   STATE — persisted to localStorage, wrapped so it never breaks the page
+   ------------------------------------------------------------------------ */
+const LS_KEY = 'rooted.v1';
+const store = {
+  likes:{}, saves:{}, follows:{}, checklist:{}, comments:{}, answers:{},
+  newPosts:[], newProjects:[], compare:[], recent:[], viewed:[],
+  theme:null, notifsRead:false, drafts:[]
+};
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if (raw) Object.assign(store, JSON.parse(raw));
+  }catch(e){ /* storage unavailable — run from memory */ }
+}
+function saveState(){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(store)); }catch(e){}
+}
+function toggle(bag, id){
+  if (store[bag][id]) delete store[bag][id]; else store[bag][id] = 1;
+  saveState();
+  return !!store[bag][id];
+}
+function liked(id){ return !!store.likes[id]; }
+function saved(id){ return !!store.saves[id]; }
+function likeCount(id, base){ return base + (store.likes[id] ? 1 : 0); }
+
+/* small helpers */
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c =>
+  ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const qs = (s, root = document) => root.querySelector(s);
+const qsa = (s, root = document) => [...root.querySelectorAll(s)];
+const pick = (arr, n) => arr.slice(0, n);
+const byId = id => document.getElementById(id);
+
+function toast(msg){
+  const el = document.createElement('div');
+  el.className = 'toast'; el.textContent = msg;
+  byId('toasts').appendChild(el);
+  setTimeout(() => { el.style.opacity = '0'; el.style.transition = 'opacity .3s'; }, 2000);
+  setTimeout(() => el.remove(), 2400);
+}
+
+function trackView(kind, id, name){
+  store.viewed = [{kind, id, name}, ...store.viewed.filter(v => !(v.kind === kind && v.id === id))].slice(0, 12);
+  saveState();
+}
+
+/* ============================================================================
+   COMPONENTS
+   ========================================================================== */
+
+function sectionHead(title, sub, href, linkText){
+  return `<div class="sechead">
+    <div style="max-width:52ch">
+      <h2 class="d2">${esc(title)}</h2>
+      ${sub ? `<p class="prose">${esc(sub)}</p>` : ''}
+    </div>
+    ${href ? `<a class="linky" href="${href}">${esc(linkText || 'See all')}</a>` : ''}
+  </div>`;
+}
+
+function avatar(u, size = 34){
+  return `<span class="avatar" style="width:${size}px;height:${size}px;font-size:${size * .32}px"
+    title="${esc(u.name)}">${esc(u.initials)}</span>`;
+}
+
+function titleBlock(pairs){
+  return `<dl class="tb">${pairs.filter(p => p[1]).map(p =>
+    `<div><dt>${esc(p[0])}</dt><dd>${esc(p[1])}</dd></div>`).join('')}</dl>`;
+}
+
+function tags(list, max = 3){
+  return `<div class="row" style="flex-wrap:wrap;gap:5px">${pick(list, max).map(t =>
+    `<span class="tag">${esc(t)}</span>`).join('')}</div>`;
+}
+
+function likeBtn(id, base, label = true){
+  const on = liked(id);
+  return `<button class="stat ${on ? 'on' : ''}" data-act="like" data-id="${id}" data-base="${base}"
+    aria-pressed="${on}" title="Like">
+    <span style="display:grid;place-items:center">${ic('heart', 15, on ? 0 : 1.7)
+      .replace('fill="none"', on ? 'fill="currentColor"' : 'fill="none"')}</span>
+    <span class="mono">${likeCount(id, base)}</span>${label ? '' : ''}</button>`;
+}
+
+function saveBtn(id){
+  const on = saved(id);
+  return `<button class="iconbtn ${on ? 'on' : ''}" data-act="save" data-id="${id}"
+    aria-pressed="${on}" title="${on ? 'Saved' : 'Save'}" style="width:30px;height:30px">
+    ${ic('bookmark', 14).replace('fill="none"', on ? 'fill="currentColor"' : 'fill="none"')}</button>`;
+}
+
+/* ---------- cards ---------- */
+function projectCard(p, cls = 'ar43'){
+  return `<article class="card" data-href="#/projects/${p.id}" tabindex="0">
+    ${artBox(p.seed, p.palette, cls)}
+    <span class="corner">${esc(p.climate)}</span>
+    <div class="card__body">
+      <h3 class="d4"><a href="#/projects/${p.id}">${esc(p.name)}</a></h3>
+      <div class="card__meta">${ic('pin', 12)} ${esc(p.location)}</div>
+      <div class="card__meta" style="margin-top:4px">${esc(p.studio)} · ${p.year}</div>
+      <div style="margin-top:10px">${tags(p.materials, 3)}</div>
+    </div>
+    <div class="card__foot">${likeBtn(p.id, p.likes)}${saveBtn(p.id)}</div>
+  </article>`;
+}
+
+function materialCard(m){
+  return `<article class="card" data-href="#/materials/${m.id}" tabindex="0">
+    ${artBox(m.seed, m.palette, 'ar32')}
+    <div class="card__body">
+      <h3 class="d4"><a href="#/materials/${m.id}">${esc(m.name)}</a></h3>
+      <p class="prose" style="font-size:.9rem;margin:7px 0 0">${esc(m.dek)}</p>
+      <div class="card__meta" style="margin-top:11px">
+        <span class="tag">${esc(m.climates[0])}</span>
+        <span style="margin-left:auto" class="mono oxide">${esc(m.costLabel)} cost</span>
+      </div>
+    </div>
+  </article>`;
+}
+
+function vendorCard(v){
+  return `<article class="card" data-href="#/vendors/${v.id}" tabindex="0">
+    <div class="card__body" style="padding:17px 18px">
+      <div class="row" style="align-items:flex-start;gap:12px">
+        <span class="art ar11" style="width:46px;border-radius:2px;flex:none">${art(v.seed, 'stone')}</span>
+        <div style="min-width:0">
+          <h3 class="d4"><a href="#/vendors/${v.id}">${esc(v.name)}</a></h3>
+          <div class="card__meta">${ic('pin', 12)} ${esc(v.location)}</div>
+        </div>
+        <span class="mono" style="margin-left:auto;color:var(--ink3);font-size:.85rem">${v.priceLabel}</span>
+      </div>
+      <p class="prose" style="font-size:.9rem;margin:12px 0 0">${esc(v.dek)}</p>
+      <div style="margin-top:12px">${tags(v.cats, 3)}</div>
+      ${v.verified ? `<div style="margin-top:12px"><span class="badge">${ic('check', 11)} Verified in demo</span></div>` : ''}
+    </div>
+  </article>`;
+}
+
+function artisanCard(a){
+  return `<article class="card" data-href="#/artisans/${a.id}" tabindex="0">
+    ${artBox(a.seed, a.palette, 'ar34')}
+    <div class="card__body">
+      <div class="micro">${esc(a.craft)}</div>
+      <h3 class="d4" style="margin-top:5px"><a href="#/artisans/${a.id}">${esc(a.name)}</a></h3>
+      <div class="card__meta">${esc(a.location)} · ${a.years} yrs</div>
+    </div>
+  </article>`;
+}
+
+function articleCard(a, big = false){
+  return `<article class="card" data-href="#/guidebook/${a.id}" tabindex="0">
+    ${artBox(a.seed, a.palette, big ? 'ar169' : 'ar43')}
+    <div class="card__body">
+      <div class="micro">${esc(a.category)} · ${a.mins} min read</div>
+      <h3 class="${big ? 'd3' : 'd4'}" style="margin-top:7px"><a href="#/guidebook/${a.id}">${esc(a.title)}</a></h3>
+      <p class="prose" style="font-size:.92rem;margin:9px 0 0">${esc(a.dek)}</p>
+      <div class="card__meta" style="margin-top:12px">${avatar(a.author, 24)} ${esc(a.author.name)}</div>
+    </div>
+  </article>`;
+}
+
+function postCard(p, full = false){
+  const cc = (store.comments[p.id] || []).length + p.commentCount;
+  return `<article class="post" data-post="${p.id}">
+    <div class="post__head">
+      ${avatar(p.author, 40)}
+      <div style="min-width:0;flex:1">
+        <div class="d4" style="font-size:.98rem">${esc(p.author.name)}</div>
+        <div class="card__meta" style="margin-top:2px">${esc(p.author.profession)} · ${esc(p.author.city)} · ${esc(p.time)}</div>
+      </div>
+      ${saveBtn(p.id)}
+    </div>
+    <p class="prose" style="margin:0">${esc(p.content)}</p>
+    ${p.hasImage ? `<div style="margin-top:13px;border:1px solid var(--line);border-radius:2px;overflow:hidden">
+      ${artBox(p.seed, p.palette, 'ar169')}</div>` : ''}
+    <div style="margin-top:12px">${tags(p.tags, 4)}</div>
+    <div class="post__acts">
+      <button class="act ${liked(p.id) ? 'on' : ''}" data-act="like" data-id="${p.id}" data-base="${p.likes}">
+        ${ic('heart', 15)}<span class="mono">${likeCount(p.id, p.likes)}</span></button>
+      <button class="act" data-act="opencomments" data-id="${p.id}">${ic('message', 15)}<span class="mono">${cc}</span></button>
+      <button class="act ${saved(p.id) ? 'on' : ''}" data-act="save" data-id="${p.id}">${ic('bookmark', 15)}Save</button>
+      <button class="act" data-act="share" data-id="${p.id}">${ic('share', 15)}Share</button>
+    </div>
+    <div data-comments="${p.id}" ${full ? '' : 'hidden'}>${commentThread(p)}</div>
+  </article>`;
+}
+
+function commentThread(p){
+  const extra = store.comments[p.id] || [];
+  const all = [...p.comments, ...extra];
+  return `<div style="margin-top:6px">
+    ${all.map(c => `<div class="comment">${avatar(c.by || services.users.me(), 30)}
+      <div><div class="d4" style="font-size:.88rem">${esc((c.by || services.users.me()).name)}</div>
+      <p class="prose" style="font-size:.93rem;margin:3px 0 0">${esc(c.text)}</p></div></div>`).join('')}
+    <div class="row" style="gap:8px;margin-top:12px">
+      <input class="inp" placeholder="Add a comment" data-cinput="${p.id}" aria-label="Add a comment">
+      <button class="btn btn--sm" data-act="comment" data-id="${p.id}">Post</button>
+    </div>
+  </div>`;
+}
+
+function questionRow(q){
+  return `<article class="card" data-href="#/questions/${q.id}" tabindex="0" style="padding:17px 18px">
+    <div class="row" style="align-items:flex-start;gap:16px">
+      <div style="text-align:center;flex:none;min-width:52px">
+        <div class="d3" style="font-size:1.3rem">${q.votes}</div>
+        <div class="micro">votes</div>
+      </div>
+      <div style="min-width:0;flex:1">
+        <h3 class="d4"><a href="#/questions/${q.id}">${esc(q.title)}</a></h3>
+        <div style="margin-top:10px">${tags(q.tags, 3)}</div>
+        <div class="card__meta" style="margin-top:10px">
+          ${avatar(q.author, 22)} ${esc(q.author.name)} · ${esc(q.time)} ·
+          ${q.answers.length} ${q.answers.length === 1 ? 'answer' : 'answers'}</div>
+      </div>
+    </div>
+  </article>`;
+}
+
+/* ---------- states ---------- */
+function empty(title, msg, cta, href){
+  return `<div class="empty">
+    <div style="opacity:.4;margin-bottom:12px;display:flex;justify-content:center">${ic('layers', 26)}</div>
+    <h3 class="d4">${esc(title)}</h3>
+    <p class="prose" style="margin:8px auto 0;max-width:40ch;font-size:.95rem">${esc(msg)}</p>
+    ${cta ? `<a class="btn btn--sm" href="${href}" style="margin-top:16px">${esc(cta)}</a>` : ''}
+  </div>`;
+}
+
+function skeletonGrid(n = 8, cls = 'g4'){
+  return `<div class="grid ${cls}">${Array.from({length: n}, () =>
+    `<div><div class="skel" style="aspect-ratio:4/3"></div>
+      <div class="skel" style="height:15px;width:72%;margin-top:12px"></div>
+      <div class="skel" style="height:11px;width:46%;margin-top:8px"></div></div>`).join('')}</div>`;
+}
+
+/* renders skeletons, then the real content — makes the prototype feel live */
+function deferred(id, html, ms = 380){
+  setTimeout(() => {
+    const el = byId(id);
+    if (el){ el.innerHTML = html; el.classList.add('fade'); }
+  }, ms);
+}
+
+function crumb(parts){
+  return `<nav class="crumb">${parts.map((p, i) =>
+    (p[1] ? `<a href="${p[1]}">${esc(p[0])}</a>` : `<span>${esc(p[0])}</span>`) +
+    (i < parts.length - 1 ? `<span style="opacity:.5">/</span>` : '')).join('')}</nav>`;
+}
+
+function ratingBar(label, value, max = 5, inverse = false){
+  const pct = (value / max) * 100;
+  return `<div style="margin-bottom:13px">
+    <div class="spread"><span style="font-size:.86rem">${esc(label)}</span>
+    <span class="micro mono">${value}/${max}</span></div>
+    <div class="meter"><i style="width:${inverse ? 100 - pct : pct}%"></i></div></div>`;
+}
+
+/* ============================================================================
+   HOME
+   ========================================================================== */
+
+const EXPLORE_TILES = [
+  ['Projects','Built work, documented by the people who made it','#/projects','layers'],
+  ['Materials','What things are, where they work, what they cost','#/materials','grid'],
+  ['Vendors','Suppliers and fabricators, by region','#/vendors','compass'],
+  ['Craft & Artisans','The trades a drawing depends on','#/artisans','users'],
+  ['Guidebook','Long reads on climate, craft and construction','#/guidebook','book'],
+  ['Community','Questions, experiments and site reports','#/community','message']
+];
+
+function pageHome(){
+  const feat = PROJECTS.slice(0, 4);
+  const mats = MATERIALS.slice(0, 10);
+  const posts = services.community.all().slice(0, 3);
+  const arts = ARTICLES.slice(0, 3);
+
+  const html = `
+  <section class="hero" id="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <h1 class="d1">Build better.<br>Build <em>rooted</em>.</h1>
+        <p class="lede" style="margin-top:22px">Discover sustainable materials, traditional building
+          knowledge, responsible vendors and real projects from across India.</p>
+        <div class="hero__cta">
+          <a class="btn btn--oxide" href="#/explore">Explore ROOTED</a>
+          <button class="btn btn--ghost" data-act="idea">Share an idea</button>
+        </div>
+        <div class="hero__strip" id="herostrip">
+          <div><b class="mono">${PROJECTS.length}</b><span class="micro">Projects</span></div>
+          <div><b class="mono">${MATERIALS.length}</b><span class="micro">Materials</span></div>
+          <div><b class="mono">${VENDORS.length}</b><span class="micro">Vendors</span></div>
+          <div><b class="mono">${ARTISANS.length}</b><span class="micro">Artisans</span></div>
+        </div>
+      </div>
+      <div class="hero__plates" id="plates">
+        <div class="plate plate--a" data-depth="18">${art(101, 'oxide')}</div>
+        <div class="plate plate--b" data-depth="-26">${art(202, 'earth')}</div>
+        <div class="plate plate--c" data-depth="34">${art(303, 'bamboo')}</div>
+        <div class="hero__note" data-depth="-44">
+          <div class="micro">Currently reading</div>
+          <div class="d4" style="margin-top:5px;font-size:.98rem">The courtyard is a climate device</div>
+          <div class="micro" style="margin-top:6px">Guidebook · 9 min</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="sec">
+    <div class="wrap">
+      ${sectionHead('Six ways in', 'ROOTED is one library seen from six directions. Start wherever your question is.')}
+      <div class="tiles">
+        ${EXPLORE_TILES.map((t, i) => `
+          <a class="tile" href="${t[2]}">
+            <span class="tile__art">${art(700 + i * 31, ['oxide','earth','stone','haldi','sand','moss'][i])}</span>
+            <span class="tile__n">${ic(t[3], 15)}</span>
+            <h3>${esc(t[0])}</h3><p>${esc(t[1])}</p>
+          </a>`).join('')}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      ${sectionHead('Trending projects', 'Built work from across the country, with the material decisions written down.', '#/projects', 'All projects')}
+      <div id="homeprojects">${skeletonGrid(4)}</div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--paper);border-block:1px solid var(--line)">
+    <div class="wrap">
+      ${sectionHead('Start with a material', 'Twenty entries, each with climate fit, cost band and the projects that used it.', '#/materials', 'All materials')}
+      <div class="rail">${mats.map(m => materialCard(m)).join('')}</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      ${sectionHead('Discover by climate', 'India builds in five broad climate zones. Pick one and the library reorders itself.')}
+      <div class="climate">
+        <div class="climate__list" id="climatelist">
+          ${CLIMATES.map((c, i) => `<button data-climate="${esc(c)}" class="${i === 0 ? 'on' : ''}">
+            <b>${esc(c)}</b><span class="mono" style="margin-left:auto">${
+              PROJECTS.filter(p => p.climate === c).length}</span></button>`).join('')}
+        </div>
+        <div id="climatepane"></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="sec">
+    <div class="wrap">
+      ${sectionHead('Craft moves by region', 'Climate and craft change every few hundred kilometres. Pick a state.')}
+      <div class="mapwrap">
+        <div>${indiaMap()}</div>
+        <div id="regionpane"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="background:var(--paper);border-block:1px solid var(--line)">
+    <div class="wrap">
+      ${sectionHead('What are you building?', 'Site reports, failed experiments, honest numbers and open questions.', '#/community', 'Open the feed')}
+      <div class="grid g3" style="align-items:start">
+        ${posts.map(p => postCard(p)).join('')}
+      </div>
+      <div style="margin-top:26px;display:flex;gap:11px;flex-wrap:wrap">
+        <button class="btn btn--oxide" data-act="idea">Share an idea</button>
+        <a class="btn btn--ghost" href="#/questions">Ask a question</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      ${sectionHead('From the Guidebook', 'Longer pieces on why a material behaves the way it does.', '#/guidebook', 'All articles')}
+      <div class="grid" style="grid-template-columns:1.6fr 1fr 1fr">
+        ${articleCard(arts[0], true)}${articleCard(arts[1])}${articleCard(arts[2])}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec--tight" style="padding-bottom:70px">
+    <div class="wrap">
+      <div class="panel" style="display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+        <div style="max-width:46ch">
+          <h2 class="d3">Have a project worth documenting?</h2>
+          <p class="prose" style="margin-top:9px">Add it with the materials, the budget band and what you
+            would do differently. That last part is the reason anyone reads it.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn--oxide" data-act="project">Add a project</button>
+          <a class="btn btn--ghost" href="#/tools">Try the tools</a>
+        </div>
+      </div>
+    </div>
+  </section>`;
+
+  return { html, after(){
+    deferred('homeprojects', `<div class="grid g4">${feat.map(p => projectCard(p)).join('')}</div>`);
+    renderClimate(CLIMATES[0]);
+    renderRegion(REGIONS[1].name);
+    initParallax();
+  }};
+}
+
+/* ---------- climate switcher ---------- */
+function renderClimate(name){
+  const pane = byId('climatepane');
+  if (!pane) return;
+  qsa('#climatelist button').forEach(b => b.classList.toggle('on', b.dataset.climate === name));
+  const ms = MATERIALS.filter(m => m.climates.includes(name)).slice(0, 3);
+  const ps = PROJECTS.filter(p => p.climate === name).slice(0, 3);
+  pane.innerHTML = `<div class="fade">
+    <p class="lede" style="margin:0 0 20px">${esc(CLIMATE_NOTES[name])}</p>
+    <div class="grid g3">${ms.map(m => materialCard(m)).join('')}</div>
+    <h3 class="d4" style="margin:28px 0 14px">Projects in this zone</h3>
+    <div class="grid g3">${ps.length ? ps.map(p => projectCard(p, 'ar32')).join('')
+      : empty('Nothing in this zone yet', 'Be the first to document a building here.', 'Add a project', '#/projects')}</div>
+  </div>`;
+}
+
+/* ---------- stylised India ---------- */
+function indiaMap(){
+  const path = 'M140,28 L168,60 L204,96 L238,128 L262,150 L300,148 L320,170 L306,196 L280,214 L270,240 ' +
+               'L246,272 L230,308 L212,352 L192,404 L166,462 L152,486 L138,438 L124,392 L112,344 ' +
+               'L96,292 L76,248 L52,214 L44,176 L66,148 L90,110 L112,74 Z';
+  return `<svg class="mapsvg" viewBox="0 0 360 520" role="img" aria-label="Stylised map of India">
+    <path class="land" d="${path}" stroke-linejoin="round"/>
+    ${REGIONS.map(r => `<g>
+      <circle class="ring" data-ring="${esc(r.name)}" cx="${r.x}" cy="${r.y}" r="16" stroke-width="1.5"/>
+      <circle class="pin" data-region="${esc(r.name)}" cx="${r.x}" cy="${r.y}" r="6"/>
+      <text x="${r.x + 13}" y="${r.y + 4}">${esc(r.name)}</text></g>`).join('')}
+  </svg>`;
+}
+
+function renderRegion(name){
+  const pane = byId('regionpane');
+  if (!pane) return;
+  const r = REGIONS.find(x => x.name === name) || REGIONS[0];
+  qsa('.mapsvg .pin').forEach(p => p.classList.toggle('on', p.dataset.region === r.name));
+  qsa('.mapsvg .ring').forEach(p => p.classList.toggle('on', p.dataset.ring === r.name));
+  const proj = PROJECTS.find(p => p.name === r.project);
+  pane.innerHTML = `<div class="fade">
+    <h3 class="d2" style="font-size:clamp(1.8rem,3.2vw,2.6rem)">${esc(r.name)}</h3>
+    <p class="lede" style="margin-top:12px">${esc(r.craft)}.</p>
+    <div style="margin-top:20px">${titleBlock([
+      ['Climate', r.climate], ['Craft focus', r.craft.split(' and ')[0]],
+      ['Materials', r.materials.length + ' in the library'], ['Example', r.project]])}</div>
+    <div style="margin-top:20px" class="grid g3">
+      ${r.materials.map(mn => { const m = MATERIALS.find(x => x.name === mn);
+        return m ? `<a class="card" href="#/materials/${m.id}" style="display:block">
+          ${artBox(m.seed, m.palette, 'ar11')}
+          <div class="card__body" style="padding:11px 12px"><div class="d4" style="font-size:.9rem">${esc(m.name)}</div></div></a>` : ''; }).join('')}
+    </div>
+    ${proj ? `<div style="margin-top:20px">${projectCard(proj, 'ar169')}</div>` : ''}
+  </div>`;
+}
+
+/* ---------- hero parallax ---------- */
+function initParallax(){
+  const hero = byId('hero');
+  if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.innerWidth < 900) return;
+  const items = qsa('[data-depth]', hero);
+  let raf = null, tx = 0, ty = 0;
+  const onMove = e => {
+    const rect = hero.getBoundingClientRect();
+    tx = (e.clientX - rect.width / 2) / rect.width;
+    ty = (e.clientY - rect.top - rect.height / 2) / rect.height;
+    if (!raf) raf = requestAnimationFrame(apply);
+  };
+  const apply = () => {
+    raf = null;
+    items.forEach(el => {
+      const d = parseFloat(el.dataset.depth);
+      el.style.transform = `translate3d(${(tx * d).toFixed(2)}px, ${(ty * d * .6).toFixed(2)}px, 0)`;
+    });
+  };
+  hero.addEventListener('mousemove', onMove);
+  hero.addEventListener('mouseleave', () => items.forEach(el => el.style.transform = ''));
+}
+
+/* Threads that are not community posts (projects, articles) keep their seeded
+   comments here so a new comment never wipes them. */
+const THREADS = {};
+function threadFor(id, base){
+  if (!THREADS[id]) THREADS[id] = { id, comments: base };
+  return THREADS[id];
+}
+
+/* ============================================================================
+   SEARCH
+   ========================================================================== */
+function searchAll(q){
+  const t = q.trim().toLowerCase();
+  const hit = (...fields) => !t || fields.join(' ').toLowerCase().includes(t);
+  return {
+    projects: services.projects.all().filter(p => hit(p.name, p.location, p.studio, p.type, p.climate, p.materials.join(' '))),
+    materials: MATERIALS.filter(m => hit(m.name, m.family, m.dek, m.climates.join(' '), m.uses.join(' '))),
+    vendors:  VENDORS.filter(v => hit(v.name, v.location, v.cats.join(' '), v.dek)),
+    artisans: ARTISANS.filter(a => hit(a.name, a.craft, a.location)),
+    articles: ARTICLES.filter(a => hit(a.title, a.category, a.dek, a.author.name)),
+    posts:    services.community.all().filter(p => hit(p.content, p.tags.join(' '), p.author.name)),
+    questions:QUESTIONS.filter(x => hit(x.title, x.tags.join(' ')))
+  };
+}
+function pushRecent(q){
+  if (!q.trim()) return;
+  store.recent = [q, ...store.recent.filter(r => r !== q)].slice(0, 6);
+  saveState();
+}
+
+/* ============================================================================
+   EXPLORE
+   ========================================================================== */
+const EX = { q:'', type:'Everything', state:'', material:'', climate:'', budget:'' };
+const EX_TYPES = ['Everything','Materials','Projects','Vendors','Craft','Ideas','Articles'];
+
+function pageExplore(){
+  const states = [...new Set(PROJECTS.map(p => p.state))].sort();
+  const html = `<div class="wrap">
+    ${crumb([['Home','#/'],['Explore']])}
+    <h1 class="d2" style="max-width:20ch">Everything ROOTED knows, in one field.</h1>
+    <div style="margin-top:22px;max-width:760px">
+      <div style="position:relative">
+        <span style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--ink3)">${ic('search', 18)}</span>
+        <input class="inp" id="exq" value="${esc(EX.q)}" style="padding:16px 16px 16px 46px;font-size:1.02rem"
+          placeholder="Search materials, projects, vendors, ideas…" aria-label="Search ROOTED">
+      </div>
+      <div class="row" style="flex-wrap:wrap;gap:7px;margin-top:13px">
+        <span class="micro">Trending</span>
+        ${TRENDING.map(t => `<button class="chip" data-trend="${esc(t)}">${esc(t)}</button>`).join('')}
+      </div>
+    </div>
+
+    <div class="scroller" style="margin-top:30px">
+      ${EX_TYPES.map(t => `<button class="chip ${EX.type === t ? 'on' : ''}" data-extype="${esc(t)}">${esc(t)}</button>`).join('')}
+    </div>
+
+    <div class="row desk" style="gap:9px;margin-top:14px;flex-wrap:wrap">
+      <select class="inp" id="fstate" style="width:auto"><option value="">Any location</option>
+        ${states.map(s => `<option ${EX.state === s ? 'selected' : ''}>${esc(s)}</option>`).join('')}</select>
+      <select class="inp" id="fmat" style="width:auto"><option value="">Any material</option>
+        ${MATERIALS.map(m => `<option ${EX.material === m.name ? 'selected' : ''}>${esc(m.name)}</option>`).join('')}</select>
+      <select class="inp" id="fclim" style="width:auto"><option value="">Any climate</option>
+        ${CLIMATES.map(c => `<option ${EX.climate === c ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select>
+      <select class="inp" id="fbud" style="width:auto"><option value="">Any budget</option>
+        ${['₹20–60L','₹60L–2 Cr','₹2–5 Cr'].map(b => `<option ${EX.budget === b ? 'selected' : ''}>${esc(b)}</option>`).join('')}</select>
+      <button class="chip" data-act="clearfilters">Clear</button>
+    </div>
+    <button class="btn btn--ghost btn--sm" data-act="filtersheet" style="margin-top:14px;display:none" id="mfilter">
+      ${ic('filter', 15)} Filters</button>
+
+    <div id="exresults" style="margin-top:34px;padding-bottom:60px"></div>
+  </div>`;
+
+  return { html, after(){
+    const input = byId('exq');
+    const mf = byId('mfilter');
+    if (window.innerWidth < 860 && mf) mf.style.display = 'inline-flex';
+    let tmr;
+    input.addEventListener('input', () => {
+      EX.q = input.value;
+      clearTimeout(tmr);
+      byId('exresults').innerHTML = skeletonGrid(4);
+      tmr = setTimeout(() => { renderExplore(); if (EX.q.length > 2) pushRecent(EX.q); }, 260);
+    });
+    ['fstate:state','fmat:material','fclim:climate','fbud:budget'].forEach(pair => {
+      const [id, key] = pair.split(':');
+      const el = byId(id);
+      if (el) el.addEventListener('change', () => { EX[key] = el.value; renderExplore(); });
+    });
+    renderExplore();
+  }};
+}
+
+function applyFilters(r){
+  const out = {...r};
+  if (EX.state){
+    out.projects = out.projects.filter(p => p.state === EX.state);
+    out.vendors = out.vendors.filter(v => v.state === EX.state || v.served.includes(EX.state));
+    out.artisans = out.artisans.filter(a => a.state === EX.state);
+  }
+  if (EX.material){
+    out.projects = out.projects.filter(p => p.materials.some(m => m.includes(EX.material.split(' ')[0])));
+    out.materials = out.materials.filter(m => m.name === EX.material);
+    out.vendors = out.vendors.filter(v => v.cats.includes(EX.material));
+  }
+  if (EX.climate){
+    out.projects = out.projects.filter(p => p.climate === EX.climate);
+    out.materials = out.materials.filter(m => m.climates.includes(EX.climate));
+  }
+  if (EX.budget) out.projects = out.projects.filter(p => p.budget === EX.budget);
+  return out;
+}
+
+function renderExplore(){
+  const box = byId('exresults');
+  if (!box) return;
+  const r = applyFilters(searchAll(EX.q));
+  const t = EX.type;
+  const block = (title, items, render, href, cls = 'g4') => items.length ? `
+    <section style="margin-bottom:44px">
+      <div class="spread" style="margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:10px">
+        <h2 class="d4">${esc(title)} <span class="mono" style="color:var(--ink3)">${items.length}</span></h2>
+        ${href ? `<a class="linky" href="${href}">All</a>` : ''}</div>
+      <div class="grid ${cls}">${pick(items, 8).map(render).join('')}</div>
+    </section>` : '';
+
+  let html = '';
+  if (t === 'Everything' || t === 'Materials') html += block('Materials', r.materials, materialCard, '#/materials');
+  if (t === 'Everything' || t === 'Projects')  html += block('Projects', r.projects, p => projectCard(p), '#/projects');
+  if (t === 'Everything' || t === 'Vendors')   html += block('Vendors', r.vendors, vendorCard, '#/vendors', 'g3');
+  if (t === 'Everything' || t === 'Craft')     html += block('Craft & artisans', r.artisans, artisanCard, '#/artisans');
+  if (t === 'Everything' || t === 'Articles')  html += block('Guidebook', r.articles, a => articleCard(a), '#/guidebook', 'g3');
+  if (t === 'Everything' || t === 'Ideas')     html += block('From the community', r.posts, p => postCard(p), '#/community', 'g3');
+  if (t === 'Everything') html += block('Questions', r.questions, questionRow, '#/questions', 'g2');
+
+  box.innerHTML = html || empty('Nothing matched that',
+    EX.q ? `No results for “${EX.q}”. Try a material name, a state, or clear the filters.`
+         : 'Try a different combination of filters.', 'Clear filters', '#/explore');
+  box.classList.add('fade');
+}
+
+/* ============================================================================
+   PROJECTS
+   ========================================================================== */
+const PF = { climate:'', type:'', sort:'Trending' };
+
+function pageProjects(){
+  const types = [...new Set(PROJECTS.map(p => p.type))];
+  const html = `<div class="wrap">
+    ${crumb([['Home','#/'],['Projects']])}
+    <div class="spread" style="align-items:flex-end;flex-wrap:wrap;gap:18px">
+      <div><h1 class="d2">Projects</h1>
+        <p class="lede" style="margin-top:10px">Documented buildings, with the material and cost decisions written down.</p></div>
+      <button class="btn btn--oxide" data-act="project">${ic('plus', 15)} Add a project</button>
+    </div>
+    <div class="scroller" style="margin-top:26px">
+      <button class="chip ${!PF.climate ? 'on' : ''}" data-pclimate="">All climates</button>
+      ${CLIMATES.map(c => `<button class="chip ${PF.climate === c ? 'on' : ''}" data-pclimate="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div class="scroller" style="margin-top:9px">
+      <button class="chip ${!PF.type ? 'on' : ''}" data-ptype="">All types</button>
+      ${types.map(c => `<button class="chip ${PF.type === c ? 'on' : ''}" data-ptype="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div id="plist" style="margin-top:28px;padding-bottom:60px">${skeletonGrid(8)}</div>
+  </div>`;
+  return { html, after(){ deferred('plist', projectResults()); } };
+}
+
+function projectResults(){
+  let list = services.projects.all();
+  if (PF.climate) list = list.filter(p => p.climate === PF.climate);
+  if (PF.type) list = list.filter(p => p.type === PF.type);
+  list = [...list].sort((a, b) => PF.sort === 'Newest' ? b.year - a.year : b.likes - a.likes);
+  if (!list.length) return empty('No projects found', 'Nothing matches those filters yet.', 'Add a project', '#/projects');
+  return `<p class="micro" style="margin-bottom:14px">${list.length} projects</p>
+    <div class="grid g4">${list.map(p => projectCard(p)).join('')}</div>`;
+}
+
+function pageProject(id){
+  const p = services.projects.byId(id);
+  if (!p) return { html: `<div class="wrap">${empty('Project not found', 'That link does not lead anywhere.', 'Back to projects', '#/projects')}</div>` };
+  trackView('project', p.id, p.name);
+  const rel = PROJECTS.filter(x => x.id !== p.id && (x.climate === p.climate || x.state === p.state)).slice(0, 4);
+  const mats = p.materials.map(mn => MATERIALS.find(m => m.name === mn || m.name.includes(mn.split(' ')[0]))).filter(Boolean);
+  const gallery = Array.from({length: 6}, (_, i) => ({ seed: p.seed + i * 91, pal: p.palette,
+    cap: ['Approach from the street','Courtyard at midday','Wall section under construction','Material sample panel','Interior, first floor','Detail at the parapet'][i] }));
+
+  const html = `
+  <div class="art ar169" style="max-height:62vh">${art(p.seed, p.palette)}</div>
+  <div class="wrap">
+    ${crumb([['Home','#/'],['Projects','#/projects'],[p.name]])}
+    <div class="grid" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);align-items:start;gap:clamp(20px,4vw,56px)">
+      <div>
+        <h1 class="d2">${esc(p.name)}</h1>
+        <p class="lede" style="margin-top:14px">${esc(p.dek)}</p>
+        <div class="row" style="gap:9px;margin-top:20px;flex-wrap:wrap">
+          ${likeBtn(p.id, p.likes)}${saveBtn(p.id)}
+          <button class="btn btn--ghost btn--sm" data-act="share" data-id="${p.id}">${ic('share', 14)} Share</button>
+        </div>
+        <h2 class="d3" style="margin-top:40px">The story</h2>
+        <p class="prose" style="margin-top:12px">${esc(p.story)}</p>
+        <h2 class="d3" style="margin-top:32px">Design approach</h2>
+        <p class="prose" style="margin-top:12px">${esc(p.approach)}</p>
+        <h2 class="d3" style="margin-top:32px">Construction</h2>
+        <p class="prose" style="margin-top:12px">${esc(p.construction)}</p>
+        <h2 class="d3" style="margin-top:32px">Lessons learned</h2>
+        <ul class="prose" style="margin-top:12px;padding-left:20px">
+          ${p.lessons.map(l => `<li style="margin-bottom:8px">${esc(l)}</li>`).join('')}</ul>
+      </div>
+      <aside style="position:sticky;top:82px">
+        ${titleBlock([['Location', p.location], ['Architect', p.studio], ['Year', String(p.year)],
+          ['Area', p.area + ' m²'], ['Climate', p.climate], ['Type', p.type], ['Budget band', p.budget]])}
+        <div class="panel" style="margin-top:18px">
+          <div class="micro">Materials used</div>
+          <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+            ${mats.map(m => `<a class="row" href="#/materials/${m.id}" style="gap:10px">
+              <span class="art ar11" style="width:34px;border-radius:2px">${art(m.seed, m.palette)}</span>
+              <span style="font-size:.92rem;font-weight:500">${esc(m.name)}</span>
+              <span style="margin-left:auto;color:var(--ink3)">${ic('chevron', 14)}</span></a>`).join('')}
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section class="sec">
+      <div class="spread" style="margin-bottom:16px"><h2 class="d3">Gallery</h2>
+        <span class="micro">Click any image to open it full screen</span></div>
+      <div class="masonry" id="gal">
+        ${gallery.map((g, i) => `<div data-lb="${i}">
+          <div class="art ${['ar43','ar34','ar11','ar169','ar34','ar43'][i]}">${art(g.seed, g.pal)}</div>
+          <p class="micro" style="margin-top:7px">${esc(g.cap)}</p></div>`).join('')}
+      </div>
+    </section>
+
+    <section class="sec--tight">
+      <h2 class="d3" style="margin-bottom:16px">Discussion</h2>
+      <div class="panel">${commentThread(threadFor(p.id, [
+        {by: USERS[5], text: 'The wall build-up here is worth stealing. Did you get any condensation on the north face?'},
+        {by: USERS[12], text: 'Costs look plausible for 2023. Would be useful to see the breakdown by trade.'}]))}</div>
+    </section>
+
+    <section class="sec--tight" style="padding-bottom:70px">
+      ${sectionHead('Related projects', 'Same climate zone or same region.', '#/projects', 'All projects')}
+      <div class="grid g4">${rel.map(x => projectCard(x)).join('')}</div>
+    </section>
+  </div>`;
+
+  return { html, after(){
+    qsa('#gal [data-lb]').forEach(el => el.addEventListener('click', () =>
+      openLightbox(gallery, parseInt(el.dataset.lb, 10))));
+  }};
+}
+
+/* ============================================================================
+   MATERIALS
+   ========================================================================== */
+const MF = { climate:'', family:'' };
+
+function pageMaterials(){
+  const fams = [...new Set(MATERIALS.map(m => m.family))];
+  const html = `<div class="wrap">
+    ${crumb([['Home','#/'],['Materials']])}
+    <div class="spread" style="align-items:flex-end;flex-wrap:wrap;gap:18px">
+      <div><h1 class="d2">Materials</h1>
+        <p class="lede" style="margin-top:10px">What a material is, where it works, what it costs and who supplies it.</p></div>
+      <a class="btn btn--ghost" href="#/compare">${ic('scale', 15)} Compare materials</a>
+    </div>
+    <div class="scroller" style="margin-top:26px">
+      <button class="chip ${!MF.climate ? 'on' : ''}" data-mclimate="">All climates</button>
+      ${CLIMATES.map(c => `<button class="chip ${MF.climate === c ? 'on' : ''}" data-mclimate="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div class="scroller" style="margin-top:9px">
+      <button class="chip ${!MF.family ? 'on' : ''}" data-mfam="">All families</button>
+      ${fams.map(c => `<button class="chip ${MF.family === c ? 'on' : ''}" data-mfam="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div id="mlist" style="margin-top:28px;padding-bottom:60px">${skeletonGrid(8)}</div>
+  </div>`;
+  return { html, after(){ deferred('mlist', materialResults()); } };
+}
+
+function materialResults(){
+  let list = MATERIALS;
+  if (MF.climate) list = list.filter(m => m.climates.includes(MF.climate));
+  if (MF.family) list = list.filter(m => m.family === MF.family);
+  if (!list.length) return empty('No materials here yet', 'Nothing in the library matches that combination.', 'Clear filters', '#/materials');
+  return `<p class="micro" style="margin-bottom:14px">${list.length} materials</p>
+    <div class="grid g4">${list.map(m => materialCard(m)).join('')}</div>`;
+}
+
+function pageMaterial(id){
+  const m = services.materials.byId(id);
+  if (!m) return { html: `<div class="wrap">${empty('Material not found', 'That link does not lead anywhere.', 'All materials', '#/materials')}</div>` };
+  trackView('material', m.id, m.name);
+  const projs = PROJECTS.filter(p => p.materials.some(x => x === m.name || x.includes(m.name.split(' ')[0]))).slice(0, 4);
+  const vends = VENDORS.filter(v => v.cats.includes(m.name)).slice(0, 3);
+  const inCompare = store.compare.includes(m.id);
+
+  const html = `<div class="wrap">
+    ${crumb([['Home','#/'],['Materials','#/materials'],[m.name]])}
+    <div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:center">
+      <div>
+        <div class="micro">${esc(m.family)}</div>
+        <h1 class="d2" style="margin-top:8px">${esc(m.name)}</h1>
+        <p class="lede" style="margin-top:14px">${esc(m.dek)}</p>
+        <div class="row" style="gap:9px;margin-top:22px;flex-wrap:wrap">
+          <button class="btn ${inCompare ? '' : 'btn--oxide'}" data-act="compare" data-id="${m.id}">
+            ${ic('scale', 15)} ${inCompare ? 'In comparison' : 'Compare material'}</button>
+          ${saveBtn(m.id)}
+        </div>
+      </div>
+      <div class="art ar32 arch" style="border:1px solid var(--line)">${art(m.seed, m.palette)}</div>
+    </div>
+
+    <div style="margin-top:34px">${titleBlock([['Family', m.family], ['Cost band', m.costLabel],
+      ['Climates', m.climates.length + ' of 5'], ['Typical use', m.uses[0]]])}</div>
+
+    <div class="grid" style="grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,52px);margin-top:44px;align-items:start">
+      <div>
+        <h2 class="d3">Overview</h2>
+        <p class="prose" style="margin-top:12px">${esc(m.overview)}</p>
+
+        <h2 class="d3" style="margin-top:32px">Where it works</h2>
+        <div class="row" style="gap:7px;margin-top:12px;flex-wrap:wrap">
+          ${CLIMATES.map(c => `<span class="chip ${m.climates.includes(c) ? 'on' : ''}"
+            style="${m.climates.includes(c) ? '' : 'opacity:.45'}">${esc(c)}</span>`).join('')}
+        </div>
+        <p class="prose" style="margin-top:12px;font-size:.95rem">${esc(CLIMATE_NOTES[m.climates[0]])}</p>
+
+        <div class="grid g2" style="margin-top:32px">
+          <div><h3 class="d4">Advantages</h3><ul class="prose" style="margin-top:10px;padding-left:19px;font-size:.96rem">
+            ${m.pros.map(x => `<li style="margin-bottom:7px">${esc(x)}</li>`).join('')}</ul></div>
+          <div><h3 class="d4">Limitations</h3><ul class="prose" style="margin-top:10px;padding-left:19px;font-size:.96rem">
+            ${m.cons.map(x => `<li style="margin-bottom:7px">${esc(x)}</li>`).join('')}</ul></div>
+        </div>
+
+        <h2 class="d3" style="margin-top:32px">Typical applications</h2>
+        <div class="row" style="gap:7px;margin-top:12px;flex-wrap:wrap">
+          ${m.uses.map(u => `<span class="chip">${esc(u)}</span>`).join('')}</div>
+      </div>
+      <aside>
+        <div class="panel">
+          <div class="micro" style="margin-bottom:14px">Indicative ratings</div>
+          ${ratingBar('Durability', m.durability)}
+          ${ratingBar('Availability in India', m.availability)}
+          ${ratingBar('Lower embodied carbon', 6 - m.carbon)}
+          ${ratingBar('Affordability', 4 - m.cost, 3)}
+          <p class="hint" style="margin-top:12px">${esc(m.note)}</p>
+        </div>
+        ${vends.length ? `<div class="panel" style="margin-top:16px">
+          <div class="micro" style="margin-bottom:12px">Vendors in the demo directory</div>
+          <div style="display:flex;flex-direction:column;gap:11px">
+            ${vends.map(v => `<a href="#/vendors/${v.id}" class="row" style="gap:10px">
+              <span class="art ar11" style="width:32px;border-radius:2px">${art(v.seed, 'stone')}</span>
+              <span><span style="font-size:.92rem;font-weight:500;display:block">${esc(v.name)}</span>
+              <span class="micro">${esc(v.location)}</span></span></a>`).join('')}
+          </div></div>` : ''}
+      </aside>
+    </div>
+
+    <section class="sec" style="padding-bottom:70px">
+      ${sectionHead('Projects using ' + m.name, 'Built work in the library that specified it.', '#/projects', 'All projects')}
+      ${projs.length ? `<div class="grid g4">${projs.map(p => projectCard(p)).join('')}</div>`
+        : empty('No projects yet', 'Nothing in the demo library has used this one. Add the first.', 'Add a project', '#/projects')}
+    </section>
+  </div>`;
+  return { html };
+}
+
+/* ---------- comparison ---------- */
+function pageCompare(){
+  const sel = store.compare.map(id => MATERIALS.find(m => m.id === id)).filter(Boolean);
+  const rows = [
+    ['Cost band', m => m.costLabel],
+    ['Thermal performance', m => ['','Limited','Moderate','Good','Strong','Excellent'][Math.min(5, 7 - m.carbon)]],
+    ['Durability', m => m.durability + '/5'],
+    ['Availability in India', m => m.availability + '/5'],
+    ['Embodied carbon', m => ['','Very low','Low','Moderate','High','Very high'][m.carbon]],
+    ['Typical application', m => m.uses.join(', ')],
+    ['Climate fit', m => m.climates.join(', ')],
+    ['Environmental note', m => m.carbon <= 2 ? 'Low-process material; impact is mostly transport.'
+      : 'Process energy dominates. Ask the supplier for kiln or plant figures.']
+  ];
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Materials','#/materials'],['Compare']])}
+    <h1 class="d2">Compare materials</h1>
+    <p class="lede" style="margin-top:10px">Pick two or three. All values are illustrative demo figures for this
+      prototype, not engineering data.</p>
+    <div class="scroller" style="margin-top:22px">
+      ${MATERIALS.map(m => `<button class="chip ${store.compare.includes(m.id) ? 'on' : ''}"
+        data-act="compare" data-id="${m.id}">${esc(m.name)}</button>`).join('')}
+    </div>
+    <div style="margin-top:28px;overflow-x:auto">
+      ${sel.length < 2 ? empty('Choose at least two materials',
+        'Select materials above and the table builds itself.', 'Browse materials', '#/materials')
+      : `<table class="tbl" style="min-width:${220 + sel.length * 200}px">
+        <thead><tr><th style="width:190px">Property</th>
+          ${sel.map(m => `<th><a href="#/materials/${m.id}" style="font-size:.95rem;color:var(--ink);
+            text-transform:none;letter-spacing:-.02em">${esc(m.name)}</a></th>`).join('')}</tr></thead>
+        <tbody>${rows.map(r => `<tr><td class="micro" style="color:var(--ink3)">${esc(r[0])}</td>
+          ${sel.map(m => `<td>${esc(r[1](m))}</td>`).join('')}</tr>`).join('')}</tbody></table>`}
+    </div>
+    ${sel.length ? `<button class="btn btn--ghost btn--sm" data-act="clearcompare" style="margin-top:20px">Clear comparison</button>` : ''}
+  </div>`;
+  return { html };
+}
+
+/* ============================================================================
+   VENDORS
+   ========================================================================== */
+function pageVendors(){
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Vendors']])}
+    <h1 class="d2">Vendor directory</h1>
+    <p class="lede" style="margin-top:10px">Suppliers, fabricators and material producers by region. Every
+      company, badge and review on this page is fictional demo content.</p>
+    <div class="scroller" style="margin-top:24px">
+      <button class="chip on" data-vcat="">All categories</button>
+      ${[...new Set(VENDORS.flatMap(v => v.cats))].map(c =>
+        `<button class="chip" data-vcat="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div id="vlist" style="margin-top:26px">${skeletonGrid(6, 'g3')}</div>
+  </div>`;
+  return { html, after(){ deferred('vlist', `<div class="grid g3">${VENDORS.map(vendorCard).join('')}</div>`); } };
+}
+
+function pageVendor(id){
+  const v = services.vendors.byId(id);
+  if (!v) return { html: `<div class="wrap">${empty('Vendor not found', 'That link does not lead anywhere.', 'All vendors', '#/vendors')}</div>` };
+  trackView('vendor', v.id, v.name);
+  const projs = PROJECTS.filter(p => p.materials.some(m => v.cats.includes(m))).slice(0, 3);
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Vendors','#/vendors'],[v.name]])}
+    <div class="spread" style="align-items:flex-start;flex-wrap:wrap;gap:20px">
+      <div class="row" style="gap:16px;align-items:flex-start">
+        <span class="art ar11" style="width:74px;border-radius:2px;border:1px solid var(--line)">${art(v.seed, 'stone')}</span>
+        <div>
+          <h1 class="d2" style="font-size:clamp(1.9rem,3.6vw,2.8rem)">${esc(v.name)}</h1>
+          <div class="card__meta" style="margin-top:8px">${ic('pin', 13)} ${esc(v.location)} · since ${v.since}</div>
+          <div class="row" style="gap:7px;margin-top:11px;flex-wrap:wrap">
+            ${v.verified ? `<span class="badge">${ic('check', 11)} Verified in demo</span>` : ''}
+            ${v.badges.map(b => `<span class="tag">${esc(b)}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="gap:9px">
+        ${saveBtn(v.id)}<button class="btn btn--oxide" data-act="inquiry" data-id="${v.id}">Contact vendor</button>
+      </div>
+    </div>
+
+    <div class="tabs" style="margin-top:30px" data-tabs="vendor">
+      ${['About','Products','Services','Locations','Projects','Reviews'].map((t, i) =>
+        `<button class="${i === 0 ? 'on' : ''}" data-tab="${t}">${t}</button>`).join('')}
+    </div>
+    <div id="vtab" style="margin-top:24px"></div>
+  </div>`;
+
+  const panes = {
+    About: `<div style="max-width:62ch"><p class="prose">${esc(v.about)}</p>
+      <p class="prose" style="margin-top:14px">Work is quoted per project rather than from a rate card. Lead times
+        stretch through the monsoon, so the practical planning window is October to May.</p></div>
+      <div style="margin-top:24px">${titleBlock([['Founded', String(v.since)], ['Base', v.location],
+        ['Price band', v.priceLabel], ['Categories', v.cats.length + '']])}</div>`,
+    Products: `<div class="grid g3">${v.cats.map(c => { const m = MATERIALS.find(x => x.name === c);
+      return m ? materialCard(m) : `<div class="panel">${esc(c)}</div>`; }).join('')}</div>`,
+    Services: `<div class="grid g2">${v.services.map(s => `<div class="panel">
+      <div class="row" style="gap:10px">${ic('check', 16)}<b class="d4" style="font-size:.98rem">${esc(s)}</b></div>
+      <p class="prose" style="margin-top:8px;font-size:.93rem">Quoted per project after a site visit or drawings.</p>
+      </div>`).join('')}</div>`,
+    Locations: `<p class="prose" style="max-width:56ch">Delivers from ${esc(v.city)} to the states below. Beyond
+      roughly 400km the transport cost usually outweighs the material advantage.</p>
+      <div class="row" style="gap:8px;margin-top:16px;flex-wrap:wrap">
+        ${v.served.map(s => `<span class="chip">${ic('pin', 13)} ${esc(s)}</span>`).join('')}</div>`,
+    Projects: projs.length ? `<div class="grid g3">${projs.map(p => projectCard(p)).join('')}</div>`
+      : empty('No linked projects yet', 'Nothing in the demo library lists this supplier.', 'Browse projects', '#/projects'),
+    Reviews: `<div style="max-width:70ch">${v.reviews.map(r => `<div class="panel" style="margin-bottom:12px">
+      <div class="row" style="gap:10px">${avatar(r.by, 34)}
+        <div><b class="d4" style="font-size:.95rem">${esc(r.by.name)}</b>
+        <div class="micro">${esc(r.by.profession)}</div></div>
+        <span style="margin-left:auto;color:var(--haldi)">${Array.from({length: r.rating}, () => ic('star', 13)).join('')}</span></div>
+      <p class="prose" style="margin-top:10px;font-size:.95rem">${esc(r.text)}</p></div>`).join('')}
+      <p class="hint">Demo reviews written for this prototype.</p></div>`
+  };
+
+  return { html, after(){
+    const pane = byId('vtab');
+    pane.innerHTML = panes.About;
+    qsa('[data-tabs="vendor"] button').forEach(b => b.addEventListener('click', () => {
+      qsa('[data-tabs="vendor"] button').forEach(x => x.classList.toggle('on', x === b));
+      pane.innerHTML = panes[b.dataset.tab] || '';
+      pane.classList.remove('fade'); void pane.offsetWidth; pane.classList.add('fade');
+    }));
+  }};
+}
+
+/* ============================================================================
+   ARTISANS
+   ========================================================================== */
+function pageArtisans(){
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Craft & artisans']])}
+    <h1 class="d2">Craft &amp; artisans</h1>
+    <p class="lede" style="margin-top:10px">A drawing is a proposal. The trade that builds it decides what the
+      building actually becomes. Demo profiles, fictional people.</p>
+    <div class="scroller" style="margin-top:24px">
+      <button class="chip on" data-acraft="">All crafts</button>
+      ${[...new Set(ARTISANS.map(a => a.craft))].map(c =>
+        `<button class="chip" data-acraft="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div id="alist" style="margin-top:26px">${skeletonGrid(8)}</div>
+  </div>`;
+  return { html, after(){ deferred('alist', `<div class="grid g4">${ARTISANS.map(artisanCard).join('')}</div>`); } };
+}
+
+function pageArtisan(id){
+  const a = services.artisans.byId(id);
+  if (!a) return { html: `<div class="wrap">${empty('Artisan not found', 'That link does not lead anywhere.', 'All artisans', '#/artisans')}</div>` };
+  trackView('artisan', a.id, a.name);
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Craft & artisans','#/artisans'],[a.name]])}
+    <div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,4vw,52px);align-items:center">
+      <div class="art ar34 arch" style="border:1px solid var(--line)">${art(a.seed, a.palette)}</div>
+      <div>
+        <div class="micro">${esc(a.craft)}</div>
+        <h1 class="d2" style="margin-top:8px">${esc(a.name)}</h1>
+        <p class="lede" style="margin-top:14px">${esc(a.bio)}</p>
+        <div class="row" style="gap:9px;margin-top:20px">
+          ${saveBtn(a.id)}
+          <button class="btn btn--oxide" data-act="inquiry" data-id="${a.id}">Get in touch</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px">${titleBlock([['Craft', a.craft], ['Based', a.location],
+      ['Experience', a.years + ' years'], ['Takes on', '4–8 projects a year']])}</div>
+
+    <section class="sec--tight" style="margin-top:20px">
+      <h2 class="d3" style="margin-bottom:16px">Portfolio</h2>
+      <div class="masonry" id="gal">
+        ${Array.from({length: 6}, (_, i) => `<div data-lb="${i}">
+          <div class="art ${['ar34','ar11','ar43','ar34','ar169','ar11'][i]}">${art(a.seed + i * 77, a.palette)}</div>
+          <p class="micro" style="margin-top:7px">Work sample ${i + 1}</p></div>`).join('')}
+      </div>
+    </section>
+
+    <section class="sec--tight">
+      <h2 class="d3" style="margin-bottom:14px">Takes on</h2>
+      <div class="row" style="gap:8px;flex-wrap:wrap">${a.works.map(w => `<span class="chip">${esc(w)}</span>`).join('')}</div>
+    </section>
+  </div>`;
+  const gal = Array.from({length: 6}, (_, i) => ({seed: a.seed + i * 77, pal: a.palette, cap: 'Work sample ' + (i + 1)}));
+  return { html, after(){
+    qsa('#gal [data-lb]').forEach(el => el.addEventListener('click', () => openLightbox(gal, parseInt(el.dataset.lb, 10))));
+  }};
+}
+
+/* ============================================================================
+   GUIDEBOOK
+   ========================================================================== */
+let GB_CAT = '';
+function pageGuidebook(){
+  const lead = ARTICLES[0];
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Guidebook']])}
+    <h1 class="d2">The Guidebook</h1>
+    <p class="lede" style="margin-top:10px">Long-form writing on climate, craft, materials and the awkward gap
+      between a specification and a finished wall.</p>
+    <div style="margin-top:30px">${articleCard(lead, true)}</div>
+    <div class="scroller" style="margin-top:34px">
+      <button class="chip ${!GB_CAT ? 'on' : ''}" data-gbcat="">All</button>
+      ${ARTICLE_CATS.map(c => `<button class="chip ${GB_CAT === c ? 'on' : ''}" data-gbcat="${esc(c)}">${esc(c)}</button>`).join('')}
+    </div>
+    <div id="gblist" style="margin-top:24px">${skeletonGrid(6, 'g3')}</div>
+  </div>`;
+  return { html, after(){ deferred('gblist', gbResults()); } };
+}
+function gbResults(){
+  const list = ARTICLES.slice(1).filter(a => !GB_CAT || a.category === GB_CAT);
+  if (!list.length) return empty('Nothing filed here yet', 'No articles in this category so far.', 'See all articles', '#/guidebook');
+  return `<div class="grid g3">${list.map(a => articleCard(a)).join('')}</div>`;
+}
+
+function pageArticle(id){
+  const a = services.articles.byId(id);
+  if (!a) return { html: `<div class="wrap">${empty('Article not found', 'That link does not lead anywhere.', 'Guidebook', '#/guidebook')}</div>` };
+  trackView('article', a.id, a.title);
+  const rel = ARTICLES.filter(x => x.id !== a.id && x.category === a.category).slice(0, 3);
+  const mats = MATERIALS.slice(a.mins % 8, (a.mins % 8) + 3);
+  const html = `
+  <div class="art ar169" style="max-height:56vh">${art(a.seed, a.palette)}</div>
+  <div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Guidebook','#/guidebook'],[a.category]])}
+    <div class="grid" style="grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(20px,4vw,52px);align-items:start">
+      <aside style="position:sticky;top:82px" class="desk">
+        <div class="micro">Contents</div>
+        <div style="display:flex;flex-direction:column;gap:9px;margin-top:12px">
+          ${a.sections.map((s, i) => `<a href="#sec${i}" class="linky" style="border:0;font-weight:400;color:var(--ink2)">${esc(s.h)}</a>`).join('')}
+        </div>
+        <div class="row" style="gap:8px;margin-top:20px">${saveBtn(a.id)}
+          <button class="iconbtn" data-act="share" data-id="${a.id}" style="width:30px;height:30px">${ic('share', 14)}</button></div>
+      </aside>
+      <article style="max-width:68ch">
+        <div class="micro">${esc(a.category)} · ${a.mins} min read</div>
+        <h1 class="d2" style="margin-top:10px">${esc(a.title)}</h1>
+        <p class="lede" style="margin-top:14px">${esc(a.dek)}</p>
+        <div class="row" style="gap:10px;margin-top:20px;padding-bottom:22px;border-bottom:1px solid var(--line)">
+          ${avatar(a.author, 38)}<div><b class="d4" style="font-size:.95rem">${esc(a.author.name)}</b>
+          <div class="micro">${esc(a.author.profession)}, ${esc(a.author.city)}</div></div>
+        </div>
+        ${a.sections.map((s, i) => `<section id="sec${i}" style="margin-top:30px">
+          <h2 class="d3">${esc(s.h)}</h2>
+          <p class="prose lg" style="margin-top:12px">${esc(s.p)}</p></section>`).join('')}
+        <div class="panel" style="margin-top:36px">
+          <div class="micro">Related materials</div>
+          <div class="grid g3" style="margin-top:12px">${mats.map(m => `<a href="#/materials/${m.id}" class="row" style="gap:9px">
+            <span class="art ar11" style="width:32px;border-radius:2px">${art(m.seed, m.palette)}</span>
+            <span style="font-size:.9rem;font-weight:500">${esc(m.name)}</span></a>`).join('')}</div>
+        </div>
+      </article>
+    </div>
+    ${rel.length ? `<section class="sec--tight" style="margin-top:30px">
+      ${sectionHead('More in ' + a.category, '', '#/guidebook', 'All articles')}
+      <div class="grid g3">${rel.map(x => articleCard(x)).join('')}</div></section>` : ''}
+  </div>`;
+  return { html };
+}
+
+/* ============================================================================
+   COMMUNITY
+   ========================================================================== */
+let CF_TAG = '';
+function pageCommunity(){
+  const tagList = [...new Set(services.community.all().flatMap(p => p.tags))].slice(0, 14);
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Community']])}
+    <div class="spread" style="align-items:flex-end;flex-wrap:wrap;gap:18px">
+      <div><h1 class="d2">What are you building?</h1>
+        <p class="lede" style="margin-top:10px">Site reports, honest numbers, failed experiments and open questions.</p></div>
+      <div class="row" style="gap:9px"><a class="btn btn--ghost" href="#/questions">Questions</a>
+        <button class="btn btn--oxide" data-act="idea">${ic('plus', 15)} Share an idea</button></div>
+    </div>
+    <button class="panel" data-act="idea" style="width:100%;text-align:left;margin-top:26px;display:flex;gap:12px;align-items:center">
+      ${avatar(services.users.me(), 38)}
+      <span class="prose" style="margin:0">Post an experiment, a question or a set of numbers…</span>
+      <span style="margin-left:auto;color:var(--ink3)">${ic('plus', 18)}</span>
+    </button>
+    <div class="scroller" style="margin-top:20px">
+      <button class="chip ${!CF_TAG ? 'on' : ''}" data-ctag="">All</button>
+      ${tagList.map(t => `<button class="chip ${CF_TAG === t ? 'on' : ''}" data-ctag="${esc(t)}">${esc(t)}</button>`).join('')}
+    </div>
+    <div class="grid g2" id="feed" style="margin-top:24px;align-items:start"></div>
+  </div>`;
+  return { html, after(){ byId('feed').innerHTML = feedResults(); } };
+}
+function feedResults(){
+  const list = services.community.all().filter(p => !CF_TAG || p.tags.includes(CF_TAG));
+  if (!list.length) return empty('Nothing here yet', 'No posts with that tag so far.', 'Share an idea', '#/community');
+  return list.map(p => postCard(p)).join('');
+}
+
+function pagePost(id){
+  const p = services.community.byId(id);
+  if (!p) return { html: `<div class="wrap">${empty('Post not found', 'That link does not lead anywhere.', 'Community', '#/community')}</div>` };
+  return { html: `<div class="wrap" style="padding-bottom:70px;max-width:760px">
+    ${crumb([['Home','#/'],['Community','#/community'],['Post']])}
+    ${postCard(p, true)}</div>` };
+}
+
+/* ============================================================================
+   QUESTIONS
+   ========================================================================== */
+function pageQuestions(){
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Questions']])}
+    <div class="spread" style="align-items:flex-end;flex-wrap:wrap;gap:18px">
+      <div><h1 class="d2">Questions</h1>
+        <p class="lede" style="margin-top:10px">Practical problems from real sites, answered by people who have hit them.</p></div>
+      <button class="btn btn--oxide" data-act="ask">${ic('plus', 15)} Ask a question</button>
+    </div>
+    <div class="grid g2" style="margin-top:28px;align-items:start">
+      ${[...store.drafts.filter(d => d.kind === 'question').map(d => `<article class="card" style="padding:17px 18px">
+        <span class="tag">Your draft</span><h3 class="d4" style="margin-top:9px">${esc(d.title)}</h3></article>`),
+        ...QUESTIONS.map(questionRow)].join('')}
+    </div>
+  </div>`;
+  return { html };
+}
+
+function pageQuestion(id){
+  const q = services.questions.byId(id);
+  if (!q) return { html: `<div class="wrap">${empty('Question not found', 'That link does not lead anywhere.', 'All questions', '#/questions')}</div>` };
+  const extra = store.answers[q.id] || [];
+  const html = `<div class="wrap" style="padding-bottom:70px;max-width:820px">
+    ${crumb([['Home','#/'],['Questions','#/questions'],['Thread']])}
+    <h1 class="d2" style="font-size:clamp(1.7rem,3.4vw,2.6rem)">${esc(q.title)}</h1>
+    <div class="card__meta" style="margin-top:12px">${avatar(q.author, 26)} ${esc(q.author.name)} ·
+      ${esc(q.author.profession)} · ${esc(q.time)}</div>
+    <div style="margin-top:14px">${tags(q.tags, 4)}</div>
+    <div class="row" style="gap:9px;margin-top:16px">
+      <button class="stat ${liked(q.id) ? 'on' : ''}" data-act="like" data-id="${q.id}" data-base="${q.votes}">
+        ${ic('up', 15)}<span class="mono">${likeCount(q.id, q.votes)}</span></button>
+      ${saveBtn(q.id)}
+    </div>
+    <h2 class="d3" style="margin-top:38px">${q.answers.length + extra.length} answers</h2>
+    <div style="margin-top:16px">
+      ${[...q.answers, ...extra].map(a => `<div class="panel" style="margin-bottom:12px">
+        <div class="row" style="gap:10px">${avatar(a.by || services.users.me(), 34)}
+          <div><b class="d4" style="font-size:.95rem">${esc((a.by || services.users.me()).name)}</b>
+          <div class="micro">${esc((a.by || services.users.me()).profession)}</div></div>
+          <button class="stat ${liked(a.id || 'x') ? 'on' : ''}" data-act="like" data-id="${a.id || q.id + '-new'}"
+            data-base="${a.votes || 0}" style="margin-left:auto">${ic('up', 14)}
+            <span class="mono">${likeCount(a.id || q.id + '-new', a.votes || 0)}</span></button></div>
+        <p class="prose" style="margin-top:11px">${esc(a.text)}</p></div>`).join('')}
+    </div>
+    <div class="panel" style="margin-top:22px">
+      <div class="micro" style="margin-bottom:10px">Your answer</div>
+      <textarea class="inp" id="ansbox" placeholder="Answer from experience where you can. Numbers help."></textarea>
+      <div class="row" style="justify-content:flex-end;margin-top:11px">
+        <button class="btn" data-act="answer" data-id="${q.id}">Post answer</button></div>
+    </div>
+  </div>`;
+  return { html };
+}
+
+/* ============================================================================
+   TOOLS
+   ========================================================================== */
+const CHECKLIST = [
+  ['Materials', ['At least one primary material sourced within 200km','A material sample panel built and approved on site',
+    'Reused or reclaimed material considered for at least one element','Supplier asked for process or kiln energy figures']],
+  ['Energy', ['Summer sun path checked against every west opening','Passive cooling strategy defined before any equipment',
+    'Roof insulation or shading specified','Daylight reaching every habitable room without a switch']],
+  ['Water', ['Rainwater collected from the roof area','Greywater route considered at plan stage',
+    'Local water table and monsoon intensity checked','Paved area kept permeable where it can be']],
+  ['Waste', ['Construction waste sorted on site','Offcut sizes considered when setting dimensions',
+    'Demolition material from the site retained','A plan for packaging and delivery waste']],
+  ['Climate', ['Climate zone confirmed for the specific site, not the state','Thermal mass matched to the day–night swing',
+    'Cross ventilation tested on plan','Flood, cyclone or seismic exposure checked']],
+  ['Landscape', ['Existing trees surveyed before the site plan','Topsoil stripped and stored for reuse',
+    'Native planting specified over lawn','Site drainage designed to hold water, not shed it']]
+];
+
+function pageTools(){
+  const tools = [
+    ['Material calculator','Rough quantity from an area and a thickness.','calc','#/tools#calc'],
+    ['Budget estimator','A ballpark band from area, type and finish level.','scale','#/tools#budget'],
+    ['Sustainability checklist','Twenty-four decisions worth making early.','leaf','#/tools#check'],
+    ['Material comparison','Two or three materials, side by side.','grid','#/compare'],
+    ['Climate explorer','What each of the five zones asks of a building.','compass','#/tools#climate']
+  ];
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Tools']])}
+    <h1 class="d2">Tools</h1>
+    <p class="lede" style="margin-top:10px">Quick conceptual tools for the early stage of a project, when the
+      decisions are cheap to change.</p>
+
+    <div class="grid g3" style="margin-top:30px">
+      ${tools.map(t => `<a class="card" href="${t[3]}" style="padding:20px">
+        <span style="color:var(--oxide)">${ic(t[2], 22)}</span>
+        <h3 class="d4" style="margin-top:14px">${esc(t[0])}</h3>
+        <p class="prose" style="font-size:.93rem;margin-top:7px">${esc(t[1])}</p></a>`).join('')}
+    </div>
+
+    <section class="sec" id="calc">
+      <h2 class="d3">Material calculator</h2>
+      <div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:18px;align-items:start">
+        <div class="panel">
+          <div class="field"><label for="cmat">Material</label>
+            <select class="inp" id="cmat">${MATERIALS.map(m => `<option value="${m.id}">${esc(m.name)}</option>`).join('')}</select></div>
+          <div class="field"><label for="carea">Area (m²)</label>
+            <input class="inp" id="carea" type="number" value="40" min="0" step="1"></div>
+          <div class="field"><label for="cthick">Thickness (mm)</label>
+            <input class="inp" id="cthick" type="number" value="230" min="1" step="5"></div>
+          <div class="field"><label for="cwaste">Wastage allowance (%)</label>
+            <input class="inp" id="cwaste" type="number" value="8" min="0" max="40"></div>
+          <button class="btn btn--wide" data-act="calc">Calculate</button>
+        </div>
+        <div class="panel" id="calcout"></div>
+      </div>
+    </section>
+
+    <section class="sec--tight" id="budget">
+      <h2 class="d3">Project budget estimator</h2>
+      <div class="grid" style="grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:18px;align-items:start">
+        <div class="panel">
+          <div class="field"><label for="barea">Built-up area (m²)</label>
+            <input class="inp" id="barea" type="number" value="200" min="1"></div>
+          <div class="field"><label for="btype">Project type</label>
+            <select class="inp" id="btype"><option>Residential</option><option>Institutional</option>
+              <option>Commercial</option><option>Restoration</option><option>Public</option></select></div>
+          <div class="field"><label for="bfin">Finish level</label>
+            <select class="inp" id="bfin"><option>Basic</option><option selected>Mid</option><option>High</option></select></div>
+          <button class="btn btn--wide" data-act="budget">Estimate</button>
+        </div>
+        <div class="panel" id="budgetout"></div>
+      </div>
+    </section>
+
+    <section class="sec--tight" id="check">
+      <div class="spread"><h2 class="d3">Sustainability checklist</h2>
+        <button class="chip" data-act="resetcheck">Reset</button></div>
+      <div class="panel" style="margin-top:18px">
+        <div class="spread"><b class="d4" id="ckhead">Sustainability progress</b>
+          <span class="mono d3" id="ckpct">0%</span></div>
+        <div class="meter" style="height:8px;margin-top:10px"><i id="ckbar" style="width:0%"></i></div>
+        <p class="prose" style="font-size:.94rem;margin-top:12px" id="cknote"></p>
+      </div>
+      <div class="grid g2" style="margin-top:18px;align-items:start">
+        ${CHECKLIST.map(([sec, items]) => `<div class="panel">
+          <div class="micro">${esc(sec)}</div>
+          ${items.map((it, i) => { const id = sec + ':' + i;
+            return `<button class="check ${store.checklist[id] ? 'on' : ''}" data-act="check" data-id="${esc(id)}">
+              <span class="box">${store.checklist[id] ? ic('check', 13, 3) : ''}</span>
+              <span class="ctxt prose" style="font-size:.93rem;margin:0">${esc(it)}</span></button>`; }).join('')}
+        </div>`).join('')}
+      </div>
+    </section>
+
+    <section class="sec--tight" id="climate">
+      <h2 class="d3">Climate explorer</h2>
+      <div class="climate" style="margin-top:18px">
+        <div class="climate__list" id="climatelist">
+          ${CLIMATES.map((c, i) => `<button data-climate="${esc(c)}" class="${i === 0 ? 'on' : ''}"><b>${esc(c)}</b></button>`).join('')}
+        </div>
+        <div id="climatepane"></div>
+      </div>
+    </section>
+  </div>`;
+
+  return { html, after(){
+    runCalc(); runBudget(); updateChecklist(); renderClimate(CLIMATES[0]);
+    if (location.hash.includes('#')) { /* anchors handled by browser */ }
+  }};
+}
+
+const CALC_UNITS = {
+  'compressed-earth-block':['blocks', 0.00437], 'fired-brick':['bricks', 0.00147],
+  'aac-block':['blocks', 0.0144], 'laterite':['blocks', 0.0117],
+  'clay-roof-tile':['tiles', 0.0021], 'athangudi-tile':['tiles', 0.00092]
+};
+const CALC_DENSITY = { 'lime-plaster':1600, 'rammed-earth':1900, 'mud-plaster':1700, 'hempcrete':330,
+  'natural-stone':2600, 'bamboo':600, 'reclaimed-wood':650, 'ferrocement':2200, 'terracotta':1900 };
+
+function runCalc(){
+  const out = byId('calcout'); if (!out) return;
+  const m = MATERIALS.find(x => x.id === byId('cmat').value) || MATERIALS[0];
+  const area = Math.max(0, parseFloat(byId('carea').value) || 0);
+  const th = Math.max(0, parseFloat(byId('cthick').value) || 0);
+  const waste = Math.max(0, parseFloat(byId('cwaste').value) || 0);
+  const vol = area * (th / 1000) * (1 + waste / 100);
+  const unit = CALC_UNITS[m.id];
+  const dens = CALC_DENSITY[m.id];
+  out.innerHTML = `<div class="micro">Estimated quantity</div>
+    <div class="d2" style="font-size:2.6rem;margin-top:8px">${vol.toFixed(2)}<span style="font-size:1rem;margin-left:6px">m³</span></div>
+    <div style="margin-top:16px">${titleBlock([
+      ['Material', m.name], ['Wall area', area + ' m²'], ['Thickness', th + ' mm'],
+      unit ? ['Units', Math.ceil(vol / unit[1]).toLocaleString('en-IN') + ' ' + unit[0]] : ['Units', '—'],
+      dens ? ['Approx. mass', (vol * dens / 1000).toFixed(1) + ' t'] : ['Approx. mass', '—'],
+      ['Wastage', waste + '%']])}</div>
+    <p class="hint" style="margin-top:14px">This is a conceptual estimate for exploration and should not replace
+      professional calculations. Unit sizes vary by supplier and region.</p>`;
+}
+
+function runBudget(){
+  const out = byId('budgetout'); if (!out) return;
+  const area = Math.max(0, parseFloat(byId('barea').value) || 0);
+  const type = byId('btype').value, fin = byId('bfin').value;
+  const base = {Residential: 26000, Institutional: 23000, Commercial: 31000, Restoration: 34000, Public: 21000}[type];
+  const mult = {Basic: .78, Mid: 1, High: 1.42}[fin];
+  const lo = area * base * mult * .88, hi = area * base * mult * 1.18;
+  const fmt = n => '₹' + (n / 100000).toFixed(1) + ' L';
+  out.innerHTML = `<div class="micro">Indicative range</div>
+    <div class="d2" style="font-size:2.1rem;margin-top:8px">${fmt(lo)} – ${fmt(hi)}</div>
+    <div style="margin-top:16px">${titleBlock([['Area', area + ' m²'], ['Type', type], ['Finish', fin],
+      ['Per m²', '₹' + Math.round(base * mult).toLocaleString('en-IN')]])}</div>
+    <p class="hint" style="margin-top:14px">Illustrative demo rates for a prototype. Real costs depend on region,
+      season, structure and who is building it.</p>`;
+}
+
+function updateChecklist(){
+  const bar = byId('ckbar'); if (!bar) return;
+  const total = CHECKLIST.reduce((n, s) => n + s[1].length, 0);
+  const done = Object.keys(store.checklist).filter(k => store.checklist[k]).length;
+  const pct = Math.round(done / total * 100);
+  bar.style.width = pct + '%';
+  byId('ckpct').textContent = pct + '%';
+  byId('cknote').textContent = pct === 0 ? 'Start anywhere. The material and climate sections change the most for the least money.'
+    : pct < 35 ? 'A good start. Early decisions carry the most weight, so this is the right time to be making them.'
+    : pct < 70 ? 'Solid ground. Worth checking whether the water and waste items can move before drawings are frozen.'
+    : pct < 100 ? 'Very thorough. The remaining items are usually the ones that need a conversation with the client.'
+    : 'Everything on this list is covered. Nothing here is a certification — it is a prompt for better conversations.';
+}
+
+/* ============================================================================
+   PROFILE + MY ROOTED
+   ========================================================================== */
+function pageProfile(){
+  const me = services.users.me();
+  const mine = store.newProjects;
+  const ideas = store.newPosts;
+  const savedItems = allSaved();
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['Profile']])}
+    <div class="row" style="gap:20px;align-items:flex-start;flex-wrap:wrap">
+      ${avatar(me, 86)}
+      <div style="min-width:0">
+        <h1 class="d2" style="font-size:clamp(1.9rem,3.6vw,2.8rem)">${esc(me.name)}</h1>
+        <div class="card__meta" style="margin-top:7px">${esc(me.profession)} · ${esc(me.city)}, India</div>
+        <p class="lede" style="margin-top:12px;max-width:52ch">Interested in low-carbon materials, passive design
+          and traditional construction.</p>
+      </div>
+      <div class="row" style="gap:9px;margin-left:auto">
+        <button class="btn btn--ghost btn--sm" data-act="soon">Edit profile</button>
+        <button class="btn btn--sm" data-act="idea">Share an idea</button>
+      </div>
+    </div>
+    <div style="margin-top:26px">${titleBlock([['Projects', String(mine.length)], ['Ideas', String(ideas.length)],
+      ['Saved', String(savedItems.length)], ['Following', String(Object.keys(store.follows).length)]])}</div>
+    <div class="tabs" style="margin-top:30px" data-tabs="profile">
+      ${['Projects','Ideas','Saved','Activity'].map((t, i) =>
+        `<button class="${i === 0 ? 'on' : ''}" data-tab="${t}">${t}</button>`).join('')}
+    </div>
+    <div id="ptab" style="margin-top:24px"></div>
+  </div>`;
+
+  const panes = {
+    Projects: mine.length ? `<div class="grid g4">${mine.map(p => projectCard(p)).join('')}</div>`
+      : empty('No projects yet', 'Add a project and it shows up here for the rest of this session.', 'Add a project', '#/projects'),
+    Ideas: ideas.length ? `<div class="grid g2" style="align-items:start">${ideas.map(p => postCard(p)).join('')}</div>`
+      : empty('No ideas yet', 'Share something you are working on, even if it did not go to plan.', 'Share an idea', '#/community'),
+    Saved: savedItems.length ? savedGrid(savedItems)
+      : empty('No saved items yet', 'Tap the bookmark on anything and it collects here.', 'Start exploring', '#/explore'),
+    Activity: `<div class="panel" style="max-width:62ch">
+      ${NOTIFICATIONS.map(n => `<div class="comment" style="border-top:1px solid var(--line2)">
+        ${avatar(n.who, 30)}<div><p class="prose" style="margin:0;font-size:.94rem">
+        <b style="color:var(--ink)">${esc(n.who.name)}</b> ${esc(n.text)}</p>
+        <div class="micro" style="margin-top:3px">${esc(n.time)} ago</div></div></div>`).join('')}</div>`
+  };
+  return { html, after(){ bindTabs('profile', 'ptab', panes); } };
+}
+
+function bindTabs(name, paneId, panes){
+  const pane = byId(paneId);
+  const btns = qsa(`[data-tabs="${name}"] button`);
+  if (!pane) return;
+  pane.innerHTML = panes[btns[0] ? btns[0].dataset.tab : Object.keys(panes)[0]] || '';
+  btns.forEach(b => b.addEventListener('click', () => {
+    qsa(`[data-tabs="${name}"] button`).forEach(x => x.classList.toggle('on', x === b));
+    pane.innerHTML = panes[b.dataset.tab] || '';
+    pane.classList.remove('fade'); void pane.offsetWidth; pane.classList.add('fade');
+  }));
+}
+
+function allSaved(){
+  const ids = Object.keys(store.saves);
+  const out = [];
+  ids.forEach(id => {
+    const p = services.projects.byId(id); if (p) return out.push({t: 'project', o: p});
+    const m = services.materials.byId(id); if (m) return out.push({t: 'material', o: m});
+    const v = services.vendors.byId(id); if (v) return out.push({t: 'vendor', o: v});
+    const a = services.artisans.byId(id); if (a) return out.push({t: 'artisan', o: a});
+    const g = services.articles.byId(id); if (g) return out.push({t: 'article', o: g});
+    const c = services.community.byId(id); if (c) return out.push({t: 'post', o: c});
+  });
+  return out;
+}
+
+function savedGrid(items){
+  const render = {project: o => projectCard(o), material: materialCard, vendor: vendorCard,
+    artisan: artisanCard, article: o => articleCard(o), post: o => postCard(o)};
+  return `<div class="grid g3" style="align-items:start">${items.map(i => render[i.t](i.o)).join('')}</div>`;
+}
+
+function pageMyRooted(){
+  const savedItems = allSaved();
+  const html = `<div class="wrap" style="padding-bottom:70px">
+    ${crumb([['Home','#/'],['My ROOTED']])}
+    <h1 class="d2">My ROOTED</h1>
+    <p class="lede" style="margin-top:10px">Everything you have made, saved or looked at. Held in this browser
+      for the prototype — no account, no server.</p>
+
+    <section class="sec--tight">
+      ${sectionHead('My projects', '', '#/projects', 'All projects')}
+      ${store.newProjects.length ? `<div class="grid g4">${store.newProjects.map(p => projectCard(p)).join('')}</div>`
+        : empty('No projects yet', 'Everything you add shows up here.', 'Add a project', '#/projects')}
+    </section>
+
+    <section class="sec--tight">
+      ${sectionHead('My ideas', '', '#/community', 'Open the feed')}
+      ${store.newPosts.length ? `<div class="grid g2" style="align-items:start">${store.newPosts.map(p => postCard(p)).join('')}</div>`
+        : empty('No ideas yet', 'Post something from the feed and it collects here.', 'Share an idea', '#/community')}
+    </section>
+
+    <section class="sec--tight">
+      ${sectionHead('Saved', '')}
+      ${savedItems.length ? savedGrid(savedItems)
+        : empty('No saved projects yet', 'Bookmark anything and it lands here.', 'Start exploring', '#/explore')}
+    </section>
+
+    <section class="sec--tight">
+      ${sectionHead('Recently viewed', '')}
+      ${store.viewed.length ? `<div class="grid g4">${store.viewed.map(v => `
+        <a class="card" href="#/${v.kind === 'project' ? 'projects' : v.kind === 'material' ? 'materials'
+          : v.kind === 'vendor' ? 'vendors' : v.kind === 'artisan' ? 'artisans' : 'guidebook'}/${v.id}"
+          style="padding:16px"><div class="micro">${esc(v.kind)}</div>
+          <div class="d4" style="margin-top:6px">${esc(v.name)}</div></a>`).join('')}</div>`
+        : empty('Nothing here yet', 'Pages you open get listed here.', 'Explore ROOTED', '#/explore')}
+    </section>
+
+    <section class="sec--tight">
+      ${sectionHead('Following', '')}
+      <div class="grid g4">${USERS.slice(1, 5).map(u => `<div class="card" style="padding:18px;text-align:center">
+        ${avatar(u, 52)}<div class="d4" style="margin-top:11px;font-size:.98rem">${esc(u.name)}</div>
+        <div class="micro" style="margin-top:4px">${esc(u.profession)}</div>
+        <button class="btn btn--ghost btn--sm" data-act="follow" data-id="${u.id}" style="margin-top:12px">
+          ${store.follows[u.id] ? 'Following' : 'Follow'}</button></div>`).join('')}</div>
+    </section>
+  </div>`;
+  return { html };
+}
+
+/* ============================================================================
+   OVERLAYS — modals, command palette, lightbox
+   ========================================================================== */
+const overlay = () => byId('overlay');
+
+function closeOverlay(){
+  overlay().innerHTML = '';
+  document.body.classList.remove('locked');
+}
+
+function openModal(inner, opts = {}){
+  overlay().innerHTML = `<div class="scrim ${opts.bottom ? 'scrim--bottom' : ''}" data-scrim>
+    <div class="modal ${opts.bottom ? 'sheet' : ''}" role="dialog" aria-modal="true">${inner}</div></div>`;
+  document.body.classList.add('locked');
+  const first = qs('.modal input, .modal textarea, .modal button', overlay());
+  if (first) setTimeout(() => first.focus(), 40);
+}
+
+function modalShell(title, sub, body, foot){
+  return `<div class="modal__head">
+      <div><h2 class="d3">${esc(title)}</h2>${sub ? `<p class="prose" style="font-size:.93rem;margin-top:6px">${esc(sub)}</p>` : ''}</div>
+      <button class="iconbtn" data-act="close" aria-label="Close">${ic('x', 16)}</button></div>
+    <div class="modal__body">${body}</div>
+    <div class="modal__foot">${foot}</div>`;
+}
+
+/* ---------- share an idea ---------- */
+function openIdeaModal(){
+  openModal(modalShell('Share an idea',
+    'Posts publish to the community feed for this browser session.',
+    `<div class="field"><label for="i-title">Idea title</label>
+      <input class="inp" id="i-title" placeholder="Lime plaster on a coastal wall, eight months in"></div>
+     <div class="field"><label for="i-desc">Description</label>
+      <textarea class="inp" id="i-desc" placeholder="What did you try, what happened, and what would you change?"></textarea></div>
+     <div class="grid g2" style="gap:14px">
+      <div class="field"><label for="i-cat">Category</label>
+        <select class="inp" id="i-cat"><option>Experiment</option><option>Site report</option>
+          <option>Question</option><option>Sourcing</option><option>Opinion</option></select></div>
+      <div class="field"><label for="i-loc">Location</label>
+        <input class="inp" id="i-loc" placeholder="Kochi, Kerala"></div>
+     </div>
+     <div class="field"><label for="i-mat">Materials</label>
+      <input class="inp" id="i-mat" placeholder="Lime plaster, brick dust" list="matlist">
+      <datalist id="matlist">${MATERIALS.map(m => `<option>${esc(m.name)}</option>`).join('')}</datalist></div>
+     <div class="field"><label>Images</label>
+      <div class="upload">${ic('plus', 18)}<div style="margin-top:7px">A generated image stands in for uploads in this prototype</div></div></div>
+     <div class="field"><label for="i-tags">Tags</label>
+      <input class="inp" id="i-tags" placeholder="Lime plaster, Coastal, Experiment"></div>`,
+    `<button class="btn btn--ghost" data-act="savedraft">Save draft</button>
+     <button class="btn btn--oxide" data-act="publishidea">Publish</button>`));
+}
+
+function publishIdea(){
+  const title = byId('i-title').value.trim();
+  const desc = byId('i-desc').value.trim();
+  if (!title && !desc){ toast('Add a title or a description first'); return; }
+  const tagStr = byId('i-tags').value.trim() || byId('i-cat').value;
+  const loc = byId('i-loc').value.trim();
+  const post = {
+    id: 'mine-' + Date.now(), kind: 'post', author: services.users.me(),
+    content: (title ? title + '. ' : '') + desc,
+    tags: tagStr.split(',').map(s => s.trim()).filter(Boolean).slice(0, 4),
+    likes: 0, commentCount: 0, hasImage: true, palette: 'oxide',
+    seed: Date.now() % 9000, time: 'just now', comments: [],
+    location: loc
+  };
+  store.newPosts.unshift(post);
+  saveState();
+  closeOverlay();
+  toast('Published to the feed');
+  if (location.hash.startsWith('#/community') || location.hash === '#/' || location.hash === '')
+    router(); else location.hash = '#/community';
+}
+
+/* ---------- create project ---------- */
+function openProjectModal(){
+  openModal(modalShell('Add a project',
+    'Projects are added to the listing for this browser session.',
+    `<div class="field"><label for="p-name">Project name</label>
+      <input class="inp" id="p-name" placeholder="Courtyard House"></div>
+     <div class="grid g2" style="gap:14px">
+      <div class="field"><label for="p-city">City</label><input class="inp" id="p-city" placeholder="Jaipur"></div>
+      <div class="field"><label for="p-state">State</label><input class="inp" id="p-state" placeholder="Rajasthan"></div>
+     </div>
+     <div class="grid g2" style="gap:14px">
+      <div class="field"><label for="p-type">Project type</label>
+        <select class="inp" id="p-type"><option>Residential</option><option>Institutional</option>
+          <option>Commercial</option><option>Public</option><option>Restoration</option></select></div>
+      <div class="field"><label for="p-clim">Climate</label>
+        <select class="inp" id="p-clim">${CLIMATES.map(c => `<option>${esc(c)}</option>`).join('')}</select></div>
+     </div>
+     <div class="field"><label for="p-desc">Description</label>
+      <textarea class="inp" id="p-desc" placeholder="One or two sentences on what the building does."></textarea></div>
+     <div class="field"><label for="p-mat">Materials</label>
+      <input class="inp" id="p-mat" placeholder="Lime plaster, Sandstone, Terracotta" list="matlist2">
+      <datalist id="matlist2">${MATERIALS.map(m => `<option>${esc(m.name)}</option>`).join('')}</datalist></div>
+     <div class="grid g2" style="gap:14px">
+      <div class="field"><label for="p-arch">Architect</label><input class="inp" id="p-arch" placeholder="Studio Aangan"></div>
+      <div class="field"><label for="p-area">Area (m²)</label><input class="inp" id="p-area" type="number" value="200"></div>
+     </div>
+     <div class="field"><label for="p-bud">Budget range</label>
+      <select class="inp" id="p-bud"><option>₹20–60L</option><option>₹60L–2 Cr</option><option>₹2–5 Cr</option></select></div>
+     <div class="field"><label>Images</label>
+      <div class="upload">${ic('plus', 18)}<div style="margin-top:7px">A generated elevation stands in for uploads in this prototype</div></div></div>`,
+    `<button class="btn btn--ghost" data-act="savedraft">Save draft</button>
+     <button class="btn btn--oxide" data-act="publishproject">Publish</button>`));
+}
+
+function publishProject(){
+  const name = byId('p-name').value.trim();
+  if (!name){ toast('Give the project a name first'); return; }
+  const city = byId('p-city').value.trim() || 'Unlisted';
+  const state = byId('p-state').value.trim() || 'India';
+  const mats = byId('p-mat').value.split(',').map(s => s.trim()).filter(Boolean);
+  const dek = byId('p-desc').value.trim() || 'Added from the ROOTED prototype.';
+  const p = {
+    id: slug(name) + '-' + (Date.now() % 10000), kind: 'project', name,
+    city, state, location: city + ', ' + state,
+    studio: byId('p-arch').value.trim() || services.users.me().name,
+    year: new Date().getFullYear(), area: parseInt(byId('p-area').value, 10) || 200,
+    climate: byId('p-clim').value, type: byId('p-type').value,
+    materials: mats.length ? mats : ['Lime plaster'], palette: 'earth',
+    dek, likes: 0, seed: Date.now() % 9000, budget: byId('p-bud').value,
+    story: dek, approach: 'Added from the prototype — this section would be filled in on the real project form.',
+    construction: 'Not documented yet.', lessons: ['Documented straight after handover, while it is still fresh.']
+  };
+  store.newProjects.unshift(p);
+  saveState();
+  closeOverlay();
+  toast('Project published');
+  location.hash = '#/projects/' + p.id;
+}
+
+/* ---------- ask a question ---------- */
+function openAskModal(){
+  openModal(modalShell('Ask a question', 'Questions are kept in this browser for the prototype.',
+    `<div class="field"><label for="q-title">Your question</label>
+      <input class="inp" id="q-title" placeholder="How does lime plaster perform in coastal climates?"></div>
+     <div class="field"><label for="q-body">Context</label>
+      <textarea class="inp" id="q-body" placeholder="Where is the site, what have you already tried?"></textarea></div>
+     <div class="field"><label for="q-tags">Tags</label>
+      <input class="inp" id="q-tags" placeholder="Lime plaster, Coastal"></div>`,
+    `<button class="btn btn--ghost" data-act="close">Cancel</button>
+     <button class="btn btn--oxide" data-act="publishq">Post question</button>`));
+}
+
+/* ---------- vendor / artisan enquiry ---------- */
+function openInquiry(id){
+  const v = services.vendors.byId(id) || services.artisans.byId(id);
+  if (!v) return;
+  openModal(modalShell('Contact ' + v.name,
+    'Nothing is sent anywhere — this is a prototype with no backend.',
+    `<div class="grid g2" style="gap:14px">
+      <div class="field"><label for="n-name">Your name</label><input class="inp" id="n-name" value="${esc(services.users.me().name)}"></div>
+      <div class="field"><label for="n-city">Project location</label><input class="inp" id="n-city" placeholder="Pune, Maharashtra"></div></div>
+     <div class="field"><label for="n-msg">Message</label>
+      <textarea class="inp" id="n-msg" placeholder="Rough quantity, timeline, and whether you need a sample panel."></textarea></div>
+     <p class="hint">Do not enter real contact details in this prototype.</p>`,
+    `<button class="btn btn--ghost" data-act="close">Cancel</button>
+     <button class="btn btn--oxide" data-act="sendinquiry">Send enquiry</button>`));
+}
+
+/* ---------- filter bottom sheet (mobile) ---------- */
+function openFilterSheet(){
+  const states = [...new Set(PROJECTS.map(p => p.state))].sort();
+  openModal(modalShell('Filters', '',
+    `<div class="field"><label>Location</label><select class="inp" id="s-state"><option value="">Any location</option>
+      ${states.map(s => `<option ${EX.state === s ? 'selected' : ''}>${esc(s)}</option>`).join('')}</select></div>
+     <div class="field"><label>Material</label><select class="inp" id="s-mat"><option value="">Any material</option>
+      ${MATERIALS.map(m => `<option ${EX.material === m.name ? 'selected' : ''}>${esc(m.name)}</option>`).join('')}</select></div>
+     <div class="field"><label>Climate</label><select class="inp" id="s-clim"><option value="">Any climate</option>
+      ${CLIMATES.map(c => `<option ${EX.climate === c ? 'selected' : ''}>${esc(c)}</option>`).join('')}</select></div>
+     <div class="field"><label>Budget</label><select class="inp" id="s-bud"><option value="">Any budget</option>
+      ${['₹20–60L','₹60L–2 Cr','₹2–5 Cr'].map(b => `<option ${EX.budget === b ? 'selected' : ''}>${esc(b)}</option>`).join('')}</select></div>`,
+    `<button class="btn btn--ghost" data-act="clearfilters">Clear all</button>
+     <button class="btn btn--oxide" data-act="applysheet">Show results</button>`), {bottom: true});
+}
+
+/* ---------- command palette ---------- */
+let CMD_SEL = 0, CMD_ITEMS = [];
+function openPalette(){
+  overlay().innerHTML = `<div class="scrim" data-scrim style="align-items:flex-start;padding-top:12vh">
+    <div class="cmd" role="dialog" aria-modal="true">
+      <input class="cmd__in" id="cmdin" placeholder="Search materials, projects, vendors, ideas…" aria-label="Search">
+      <div class="cmd__list" id="cmdlist"></div>
+    </div></div>`;
+  document.body.classList.add('locked');
+  const input = byId('cmdin');
+  input.focus();
+  renderPalette('');
+  input.addEventListener('input', () => { CMD_SEL = 0; renderPalette(input.value); });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown'){ e.preventDefault(); CMD_SEL = Math.min(CMD_SEL + 1, CMD_ITEMS.length - 1); paintSel(); }
+    if (e.key === 'ArrowUp'){ e.preventDefault(); CMD_SEL = Math.max(CMD_SEL - 1, 0); paintSel(); }
+    if (e.key === 'Enter'){ const it = CMD_ITEMS[CMD_SEL]; if (it){ pushRecent(input.value); closeOverlay(); location.hash = it.href; } }
+  });
+}
+function paintSel(){
+  qsa('#cmdlist .cmd__item').forEach((el, i) => el.classList.toggle('sel', i === CMD_SEL));
+  const sel = qs('#cmdlist .cmd__item.sel');
+  if (sel) sel.scrollIntoView({block: 'nearest'});
+}
+function renderPalette(q){
+  const list = byId('cmdlist');
+  CMD_ITEMS = [];
+  if (!q.trim()){
+    const rows = [];
+    if (store.recent.length) rows.push(['Recent searches', store.recent.map(r =>
+      ({label: r, kind: 'search', href: '#/explore'}))]);
+    rows.push(['Popular materials', MATERIALS.slice(0, 5).map(m => ({label: m.name, kind: 'Material', href: '#/materials/' + m.id}))]);
+    rows.push(['Popular projects', PROJECTS.slice(0, 4).map(p => ({label: p.name, kind: 'Project', href: '#/projects/' + p.id}))]);
+    rows.push(['Jump to', [{label: 'Explore', kind: 'Page', href: '#/explore'},
+      {label: 'Tools', kind: 'Page', href: '#/tools'}, {label: 'My ROOTED', kind: 'Page', href: '#/my-rooted'}]]);
+    list.innerHTML = rows.map(([h, items]) => `<div class="cmd__grp">${esc(h)}</div>` +
+      items.map(i => { CMD_ITEMS.push(i); return cmdRow(i); }).join('')).join('');
+    paintSel();
+    return;
+  }
+  const r = searchAll(q);
+  const groups = [
+    ['Materials', r.materials.slice(0, 4).map(m => ({label: m.name, kind: 'Material', href: '#/materials/' + m.id}))],
+    ['Projects', r.projects.slice(0, 4).map(p => ({label: p.name, kind: p.location, href: '#/projects/' + p.id}))],
+    ['Vendors', r.vendors.slice(0, 3).map(v => ({label: v.name, kind: v.location, href: '#/vendors/' + v.id}))],
+    ['Craft', r.artisans.slice(0, 3).map(a => ({label: a.name, kind: a.craft, href: '#/artisans/' + a.id}))],
+    ['Guidebook', r.articles.slice(0, 3).map(a => ({label: a.title, kind: a.category, href: '#/guidebook/' + a.id}))],
+    ['Questions', r.questions.slice(0, 3).map(x => ({label: x.title, kind: 'Question', href: '#/questions/' + x.id}))]
+  ].filter(g => g[1].length);
+
+  if (!groups.length){
+    list.innerHTML = `<div style="padding:34px 20px;text-align:center">
+      <h3 class="d4">No matches for “${esc(q)}”</h3>
+      <p class="prose" style="font-size:.93rem;margin-top:8px">Try a material, a state, or a studio name.</p>
+      <div class="row" style="gap:6px;justify-content:center;margin-top:14px;flex-wrap:wrap">
+        ${TRENDING.slice(0, 4).map(t => `<button class="chip" data-trend="${esc(t)}">${esc(t)}</button>`).join('')}</div></div>`;
+    return;
+  }
+  list.innerHTML = groups.map(([h, items]) => `<div class="cmd__grp">${esc(h)}</div>` +
+    items.map(i => { CMD_ITEMS.push(i); return cmdRow(i); }).join('')).join('');
+  paintSel();
+}
+function cmdRow(i){
+  return `<button class="cmd__item" data-cmd="${esc(i.href)}">
+    <span style="color:var(--ink3)">${ic('arrow', 15)}</span>
+    <span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(i.label)}</span>
+    <span class="cmd__kind">${esc(i.kind)}</span></button>`;
+}
+
+/* ---------- lightbox ---------- */
+let LB = {items: [], i: 0};
+function openLightbox(items, i){
+  LB = {items, i};
+  paintLightbox();
+  document.body.classList.add('locked');
+}
+function paintLightbox(){
+  const it = LB.items[LB.i];
+  overlay().innerHTML = `<div class="lb" data-scrim>
+    <button class="lb__nav" data-lbnav="-1" style="left:18px" aria-label="Previous">${ic('chevron', 20)}</button>
+    <button class="lb__nav" data-lbnav="1" style="right:18px;transform:translateY(-50%) rotate(180deg)" aria-label="Next">${ic('chevron', 20)}</button>
+    <button class="lb__nav" data-act="close" style="top:18px;right:18px;transform:none" aria-label="Close">${ic('x', 18)}</button>
+    <figure class="lb__fig" style="margin:0">
+      <div class="art" style="aspect-ratio:16/10;border-radius:3px">${art(it.seed, it.pal)}</div>
+      <figcaption class="lb__cap"><span>${esc(it.cap)}</span>
+        <span class="mono">${LB.i + 1} / ${LB.items.length}</span></figcaption>
+    </figure></div>`;
+}
+function lbStep(d){
+  LB.i = (LB.i + d + LB.items.length) % LB.items.length;
+  paintLightbox();
+}
+
+/* ---------- notifications ---------- */
+function toggleNotifs(){
+  const box = byId('notifpanel');
+  if (box.innerHTML){ box.innerHTML = ''; return; }
+  store.notifsRead = true; saveState();
+  byId('notifdot').style.display = 'none';
+  box.innerHTML = `<div class="dropdown">
+    <div class="spread" style="padding:14px 15px;border-bottom:1px solid var(--line)">
+      <b class="d4" style="font-size:.95rem">Notifications</b>
+      <button class="micro" data-act="closenotifs">Close</button></div>
+    ${NOTIFICATIONS.map(n => `<a class="notif ${n.unread ? 'unread' : ''}" href="${n.to}" data-act="closenotifs">
+      ${avatar(n.who, 32)}<span><span class="prose" style="font-size:.9rem;color:var(--ink);display:block">
+      <b>${esc(n.who.name)}</b> ${esc(n.text)}</span>
+      <span class="micro">${esc(n.time)} ago</span></span></a>`).join('')}
+    <div style="padding:12px 15px"><a class="linky" href="#/profile" data-act="closenotifs">All activity</a></div>
+  </div>`;
+}
+
+/* ---------- theme ---------- */
+function applyTheme(){
+  const t = store.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.dataset.theme = t;
+  const b = byId('themebtn');
+  if (b) b.innerHTML = ic(t === 'dark' ? 'sun' : 'moon', 16);
+}
+function toggleTheme(){
+  store.theme = (document.documentElement.dataset.theme === 'dark') ? 'light' : 'dark';
+  saveState(); applyTheme();
+}
+
+/* ============================================================================
+   NAVIGATION + ROUTER
+   ========================================================================== */
+const NAV = [['Explore','#/explore'],['Projects','#/projects'],['Materials','#/materials'],
+  ['Vendors','#/vendors'],['Craft','#/artisans'],['Guidebook','#/guidebook'],
+  ['Community','#/community'],['Tools','#/tools']];
+
+const TABS = [['Home','#/','home'],['Explore','#/explore','compass'],['Create','','plus'],
+  ['Community','#/community','message'],['Profile','#/profile','user']];
+
+function paintNav(){
+  const path = currentPath();
+  byId('navlinks').innerHTML = NAV.map(n =>
+    `<a href="${n[1]}" class="${path.startsWith(n[1].slice(1)) ? 'on' : ''}">${esc(n[0])}</a>`).join('');
+  byId('tabbar').innerHTML = TABS.map(t => t[0] === 'Create'
+    ? `<a href="#" data-act="create" aria-label="Create"><span class="mk">${ic('plus', 20, 2)}</span></a>`
+    : `<a href="${t[1]}" class="${path === t[1].slice(1) ? 'on' : ''}">${ic(t[2], 19)}<span>${esc(t[0])}</span></a>`).join('');
+}
+
+function currentPath(){
+  const raw = location.hash.replace(/^#/, '') || '/';
+  return raw.split('#')[0] || '/';
+}
+
+const ROUTES = [
+  [/^\/$/,                    () => pageHome()],
+  [/^\/explore$/,             () => pageExplore()],
+  [/^\/projects$/,            () => pageProjects()],
+  [/^\/projects\/(.+)$/,      m => pageProject(m[1])],
+  [/^\/materials$/,           () => pageMaterials()],
+  [/^\/materials\/(.+)$/,     m => pageMaterial(m[1])],
+  [/^\/compare$/,             () => pageCompare()],
+  [/^\/vendors$/,             () => pageVendors()],
+  [/^\/vendors\/(.+)$/,       m => pageVendor(m[1])],
+  [/^\/artisans$/,            () => pageArtisans()],
+  [/^\/artisans\/(.+)$/,      m => pageArtisan(m[1])],
+  [/^\/guidebook$/,           () => pageGuidebook()],
+  [/^\/guidebook\/(.+)$/,     m => pageArticle(m[1])],
+  [/^\/community$/,           () => pageCommunity()],
+  [/^\/community\/(.+)$/,     m => pagePost(m[1])],
+  [/^\/questions$/,           () => pageQuestions()],
+  [/^\/questions\/(.+)$/,     m => pageQuestion(m[1])],
+  [/^\/tools$/,               () => pageTools()],
+  [/^\/profile$/,             () => pageProfile()],
+  [/^\/my-rooted$/,           () => pageMyRooted()]
+];
+
+let lastPath = null;
+function router(){
+  const path = currentPath();
+  const app = byId('app');
+  let out = null;
+  for (const [re, fn] of ROUTES){
+    const m = path.match(re);
+    if (m){ out = fn(m); break; }
+  }
+  if (!out) out = { html: `<div class="wrap" style="padding:60px 0">
+    ${empty('Page not found', 'That route does not exist in the prototype yet.', 'Back to home', '#/')}</div>` };
+
+  app.innerHTML = out.html;
+  if (out.after) out.after();
+  paintNav();
+  byId('notifpanel').innerHTML = '';
+
+  if (path !== lastPath){
+    const anchor = location.hash.split('#')[2];
+    if (anchor){ const el = byId(anchor); if (el) el.scrollIntoView({behavior: 'smooth'}); }
+    else window.scrollTo({top: 0, behavior: lastPath ? 'instant' : 'auto'});
+    lastPath = path;
+  }
+}
+
+/* ============================================================================
+   GLOBAL EVENTS
+   ========================================================================== */
+function updateLikeUI(id){
+  qsa(`[data-act="like"][data-id="${CSS.escape(id)}"]`).forEach(btn => {
+    const base = parseInt(btn.dataset.base, 10) || 0;
+    const on = liked(id);
+    btn.classList.toggle('on', on);
+    const num = qs('.mono', btn);
+    if (num) num.textContent = likeCount(id, base);
+    const svg = qs('svg', btn);
+    if (svg && svg.querySelector('path') && btn.closest('.card__foot'))
+      svg.setAttribute('fill', on ? 'currentColor' : 'none');
+  });
+}
+function updateSaveUI(id){
+  qsa(`[data-act="save"][data-id="${CSS.escape(id)}"]`).forEach(btn => {
+    const on = saved(id);
+    btn.classList.toggle('on', on);
+    const svg = qs('svg', btn);
+    if (svg) svg.setAttribute('fill', on ? 'currentColor' : 'none');
+  });
+}
+
+document.addEventListener('click', e => {
+  /* --- scrim / lightbox background --- */
+  const scrim = e.target.closest('[data-scrim]');
+  if (scrim && (e.target === scrim)){ closeOverlay(); return; }
+
+  const cmd = e.target.closest('[data-cmd]');
+  if (cmd){ closeOverlay(); location.hash = cmd.dataset.cmd; return; }
+
+  const lbn = e.target.closest('[data-lbnav]');
+  if (lbn){ lbStep(parseInt(lbn.dataset.lbnav, 10)); return; }
+
+  /* --- filter chips --- */
+  const chipMap = [
+    ['climate', v => renderClimate(v)],
+    ['region', v => renderRegion(v)],
+    ['trend', v => { closeOverlay(); EX.q = v; location.hash = '#/explore'; setTimeout(() => { const i = byId('exq'); if (i){ i.value = v; renderExplore(); } }, 60); }],
+    ['extype', v => { EX.type = v; qsa('[data-extype]').forEach(b => b.classList.toggle('on', b.dataset.extype === v)); renderExplore(); }],
+    ['pclimate', v => { PF.climate = v; qsa('[data-pclimate]').forEach(b => b.classList.toggle('on', b.dataset.pclimate === v)); byId('plist').innerHTML = projectResults(); }],
+    ['ptype', v => { PF.type = v; qsa('[data-ptype]').forEach(b => b.classList.toggle('on', b.dataset.ptype === v)); byId('plist').innerHTML = projectResults(); }],
+    ['mclimate', v => { MF.climate = v; qsa('[data-mclimate]').forEach(b => b.classList.toggle('on', b.dataset.mclimate === v)); byId('mlist').innerHTML = materialResults(); }],
+    ['mfam', v => { MF.family = v; qsa('[data-mfam]').forEach(b => b.classList.toggle('on', b.dataset.mfam === v)); byId('mlist').innerHTML = materialResults(); }],
+    ['gbcat', v => { GB_CAT = v; qsa('[data-gbcat]').forEach(b => b.classList.toggle('on', b.dataset.gbcat === v)); byId('gblist').innerHTML = gbResults(); }],
+    ['ctag', v => { CF_TAG = v; qsa('[data-ctag]').forEach(b => b.classList.toggle('on', b.dataset.ctag === v)); byId('feed').innerHTML = feedResults(); }],
+    ['vcat', v => { qsa('[data-vcat]').forEach(b => b.classList.toggle('on', b.dataset.vcat === v));
+      const list = v ? VENDORS.filter(x => x.cats.includes(v)) : VENDORS;
+      byId('vlist').innerHTML = list.length ? `<div class="grid g3">${list.map(vendorCard).join('')}</div>`
+        : empty('No vendors here yet', 'Nothing in the demo directory supplies this.', 'All vendors', '#/vendors'); }],
+    ['acraft', v => { qsa('[data-acraft]').forEach(b => b.classList.toggle('on', b.dataset.acraft === v));
+      const list = v ? ARTISANS.filter(x => x.craft === v) : ARTISANS;
+      byId('alist').innerHTML = list.length ? `<div class="grid g4">${list.map(artisanCard).join('')}</div>`
+        : empty('No artisans here yet', 'Nothing in the demo directory for this craft.', 'All artisans', '#/artisans'); }]
+  ];
+  for (const [key, fn] of chipMap){
+    const el = e.target.closest(`[data-${key}]`);
+    if (el){ fn(el.dataset[key]); return; }
+  }
+
+  /* --- actions --- */
+  const act = e.target.closest('[data-act]');
+  if (act){
+    const a = act.dataset.act, id = act.dataset.id;
+    switch (a){
+      case 'palette': e.preventDefault(); openPalette(); return;
+      case 'theme': toggleTheme(); return;
+      case 'notifs': e.preventDefault(); e.stopPropagation(); toggleNotifs(); return;
+      case 'closenotifs': byId('notifpanel').innerHTML = ''; return;
+      case 'close': closeOverlay(); return;
+      case 'create': e.preventDefault(); openCreateChooser(); return;
+      case 'idea': e.preventDefault(); openIdeaModal(); return;
+      case 'project': e.preventDefault(); openProjectModal(); return;
+      case 'ask': openAskModal(); return;
+      case 'publishidea': publishIdea(); return;
+      case 'publishproject': publishProject(); return;
+      case 'publishq': {
+        const t = byId('q-title').value.trim();
+        if (!t){ toast('Write the question first'); return; }
+        store.drafts.unshift({kind: 'question', title: t}); saveState();
+        closeOverlay(); toast('Question posted'); location.hash = '#/questions'; router(); return;
+      }
+      case 'savedraft': closeOverlay(); toast('Saved as a draft'); return;
+      case 'sendinquiry': closeOverlay(); toast('Enquiry simulated — nothing was sent'); return;
+      case 'inquiry': openInquiry(id); return;
+      case 'filtersheet': openFilterSheet(); return;
+      case 'applysheet': {
+        EX.state = byId('s-state').value; EX.material = byId('s-mat').value;
+        EX.climate = byId('s-clim').value; EX.budget = byId('s-bud').value;
+        closeOverlay(); renderExplore(); return;
+      }
+      case 'clearfilters': {
+        EX.state = EX.material = EX.climate = EX.budget = '';
+        closeOverlay();
+        if (currentPath() === '/explore') router();
+        return;
+      }
+      case 'like': toggle('likes', id); updateLikeUI(id); return;
+      case 'save': {
+        const on = toggle('saves', id); updateSaveUI(id);
+        toast(on ? 'Saved to My ROOTED' : 'Removed from saved'); return;
+      }
+      case 'opencomments': {
+        const box = qs(`[data-comments="${CSS.escape(id)}"]`);
+        if (box) box.hidden = !box.hidden;
+        return;
+      }
+      case 'comment': {
+        const inp = qs(`[data-cinput="${CSS.escape(id)}"]`);
+        const text = inp.value.trim();
+        if (!text){ toast('Write something first'); return; }
+        store.comments[id] = [...(store.comments[id] || []), {text}];
+        saveState();
+        const post = services.community.byId(id) || THREADS[id];
+        const box = qs(`[data-comments="${CSS.escape(id)}"]`);
+        if (post && box) box.innerHTML = commentThread(post);
+        else if (post){ const wrap = inp.closest('.panel'); if (wrap) wrap.innerHTML = commentThread(post); }
+        else inp.value = '';
+        toast('Comment added'); return;
+      }
+      case 'answer': {
+        const box = byId('ansbox'), text = box.value.trim();
+        if (!text){ toast('Write your answer first'); return; }
+        store.answers[id] = [...(store.answers[id] || []), {id: id + '-u' + Date.now(), text, votes: 0}];
+        saveState(); router(); toast('Answer posted'); return;
+      }
+      case 'share': {
+        const url = location.origin + location.pathname + location.hash;
+        if (navigator.clipboard) navigator.clipboard.writeText(url).catch(() => {});
+        toast('Link copied'); return;
+      }
+      case 'compare': {
+        const i = store.compare.indexOf(id);
+        if (i > -1) store.compare.splice(i, 1);
+        else { if (store.compare.length >= 3){ toast('Three materials at a time'); return; } store.compare.push(id); }
+        saveState();
+        if (currentPath() === '/compare') router();
+        else { toast(store.compare.length + ' selected for comparison'); location.hash = '#/compare'; }
+        return;
+      }
+      case 'clearcompare': store.compare = []; saveState(); router(); return;
+      case 'check': {
+        toggle('checklist', id);
+        act.classList.toggle('on');
+        qs('.box', act).innerHTML = store.checklist[id] ? ic('check', 13, 3) : '';
+        updateChecklist(); return;
+      }
+      case 'resetcheck': store.checklist = {}; saveState(); router(); return;
+      case 'calc': runCalc(); return;
+      case 'budget': runBudget(); return;
+      case 'follow': {
+        const on = toggle('follows', id);
+        act.textContent = on ? 'Following' : 'Follow';
+        return;
+      }
+      case 'subscribe': {
+        const v = byId('newsmail').value.trim();
+        toast(v ? 'Signed up in the prototype' : 'Add an email first');
+        if (v) byId('newsmail').value = '';
+        return;
+      }
+      case 'soon': toast('Coming in a later phase'); return;
+    }
+  }
+
+  /* --- card navigation --- */
+  const card = e.target.closest('[data-href]');
+  if (card && !e.target.closest('a,button')){ location.hash = card.dataset.href; return; }
+
+  /* --- close notification dropdown on outside click --- */
+  if (!e.target.closest('#notifpanel')) byId('notifpanel').innerHTML = '';
+});
+
+document.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); openPalette(); }
+  if (e.key === 'Escape') closeOverlay();
+  if (e.key === 'Enter' && e.target.matches('[data-href]')) location.hash = e.target.dataset.href;
+  if (overlay().querySelector('.lb')){
+    if (e.key === 'ArrowRight') lbStep(1);
+    if (e.key === 'ArrowLeft') lbStep(-1);
+  }
+});
+
+/* live recalculation on tool inputs */
+document.addEventListener('input', e => {
+  if (['carea','cthick','cwaste'].includes(e.target.id) || e.target.id === 'cmat') runCalc();
+  if (['barea'].includes(e.target.id)) runBudget();
+});
+document.addEventListener('change', e => {
+  if (e.target.id === 'cmat') runCalc();
+  if (['btype','bfin'].includes(e.target.id)) runBudget();
+});
+
+function openCreateChooser(){
+  openModal(modalShell('Create', 'What are you adding to ROOTED?',
+    `<div class="grid g2" style="gap:12px">
+      <button class="panel" data-act="idea" style="text-align:left">
+        <span style="color:var(--oxide)">${ic('message', 20)}</span>
+        <div class="d4" style="margin-top:10px">Share an idea</div>
+        <p class="prose" style="font-size:.9rem;margin-top:6px">An experiment, a site report or a set of numbers.</p></button>
+      <button class="panel" data-act="project" style="text-align:left">
+        <span style="color:var(--oxide)">${ic('layers', 20)}</span>
+        <div class="d4" style="margin-top:10px">Add a project</div>
+        <p class="prose" style="font-size:.9rem;margin-top:6px">Built work, with materials and budget band.</p></button>
+      <button class="panel" data-act="ask" style="text-align:left">
+        <span style="color:var(--oxide)">${ic('users', 20)}</span>
+        <div class="d4" style="margin-top:10px">Ask a question</div>
+        <p class="prose" style="font-size:.9rem;margin-top:6px">Put a site problem in front of the community.</p></button>
+      <a class="panel" href="#/tools" data-act="close" style="text-align:left;display:block">
+        <span style="color:var(--oxide)">${ic('tool', 20)}</span>
+        <div class="d4" style="margin-top:10px">Open the tools</div>
+        <p class="prose" style="font-size:.9rem;margin-top:6px">Calculator, budget estimator, checklist.</p></a>
+    </div>`, `<button class="btn btn--ghost" data-act="close">Cancel</button>`));
+}
+
+/* ============================================================================
+   BOOT
+   ========================================================================== */
+loadState();
+applyTheme();
+if (store.notifsRead){ const d = byId('notifdot'); if (d) d.style.display = 'none'; }
+window.addEventListener('hashchange', router);
+router();
+
+</script>
+</body>
+</html>
